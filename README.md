@@ -45,47 +45,29 @@ It is **Gen Z-centric**, safety-first, and designed to be explainable, collabora
 ## 🧠 System Architecture (Mermaid.js)
 
 ```mermaid
-graph TD
-  A[FinPilot X System] --> B[Frontend (React + PWA)]
-  A --> C[Backend (FastAPI)]
-  A --> D[Multi-Agent Core (LangGraph)]
-  A --> E[ML Models]
-  A --> F[GenAI Integrations]
-  A --> G[Storage & Security]
-  A --> H[Auth & Identity]
-  A --> I[Offline + Shared Mode]
-  
-  B --> B1[React + Tailwind UI]
-  B --> B2[Lottie Avatars + Charts]
-  B --> B3[PWA + IndexedDB: Offline Sync]
 
-  C --> C1[FastAPI Routes]
-  C --> C2[LangGraph Orchestrator]
-  C --> C3[LangChain for LLMs]
-
-  D --> D1[Income Agent]
-  D --> D2[Spending Classifier]
-  D --> D3[Goal Planner (GenAI)]
-  D --> D4[Investment Recommender]
-  D --> D5[Decision Maker]
-  D --> D6[Explainer (GenAI)]
-  D --> D7[Anomaly/Fraud Detector]
-
-  E --> E1[Churn Predictor (scikit-learn)]
-  E --> E2[Behavior Clusterer]
-  E --> E3[Anomaly Detector]
-
-  F --> F1[GPT-4 for Goal Planning]
-  F --> F2[Whisper Voice Interface]
-  F --> F3[Output Validators]
-
-  G --> G1[Encrypted PostgreSQL/Firebase]
-  G --> G2[SQLAlchemy ORM]
-  G --> G3[AES Encryption Layer]
-
-  H --> H1[OAuth2 or Firebase Auth]
-  H --> H2[JWT Token Handling]
-  
-  I --> I1[Shared Wallet Rooms]
-  I --> I2[Offline Transaction Cache]
+flowchart TD
+    UI["User Interfaces"] -- React Web Dashboard --> Frontend["Frontend: React + Tailwind"]
+    UI -- CSV Upload --> Frontend
+    UI -- Auth OAuth2/Firebase --> Frontend
+    UI -- Offline Mode Sync --> Frontend
+    Frontend -- REST/gRPC/WebSocket --> Backend["Backend: FastAPI"]
+    Backend --> IncomeAgent["Income Analyzer Agent"] & SpendingAgent["Spending Classifier Agent"] & GoalPlanner["Goal Planner Agent [GenAI]"] & InvestmentRec["Investment Recommender Agent"] & ChurnModel["Churn Prediction ML Model"] & DecisionAgent["Decision-Making Agent"] & ExplainerAgent["Explainer Agent [GenAI]"] & AnomalyAgent["Anomaly & Fraud Detection Agent"] & HITL["Human-in-the-loop Safety System"] & AuthService["Auth Service OAuth2 / Firebase Auth"] & CollabService["Collaborative Shared Expense Module"]
+    DecisionAgent --> IncomeAgent & SpendingAgent & GoalPlanner & InvestmentRec & ChurnModel & AnomalyAgent & ExplainerAgent & HITL
+    Backend -- Encrypted Reads/Writes --> DB["Encrypted Database"]
+    DB --> IncomeAgent & SpendingAgent & GoalPlanner & InvestmentRec & ChurnModel & AnomalyAgent & DecisionAgent
+    Frontend --> OfflineCache["Offline Storage IndexedDB / PWA Cache"]
+    OfflineCache -- Sync --> Backend
+    CollabService --> DB & DecisionAgent & Frontend
+    InvestmentRec -- Calls --> FinanceAPIs["Mock Finance APIs Zerodha/Groww"]
+    GoalPlanner -- Calls --> GPTAPI["OpenAI GPT-4 API"]
+    ExplainerAgent -- Calls --> GPTAPI
+    AuthService -- Token --> Frontend
+    style UI fill:#f9f,stroke:#333,stroke-width:2px
+    style Frontend fill:#aaf,stroke:#333,stroke-width:2px
+    style Backend fill:#bbf,stroke:#333,stroke-width:2px
+    style HITL fill:#fbb,stroke:#333,stroke-width:2px
+    style DB fill:#afa,stroke:#333,stroke-width:2px
+    style OfflineCache fill:#fea,stroke:#333,stroke-width:2px
+    style GPTAPI fill:#fcf,stroke:#333,stroke-width:2px
 
