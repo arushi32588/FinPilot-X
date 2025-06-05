@@ -52,22 +52,46 @@ flowchart TD
     UI -- Auth OAuth2/Firebase --> Frontend
     UI -- Offline Mode Sync --> Frontend
     Frontend -- REST/gRPC/WebSocket --> Backend["Backend: FastAPI"]
-    Backend --> IncomeAgent["Income Analyzer Agent"] & SpendingAgent["Spending Classifier Agent"] & GoalPlanner["Goal Planner Agent [GenAI]"] & InvestmentRec["Investment Recommender Agent"] & ChurnModel["Churn Prediction ML Model"] & DecisionAgent["Decision-Making Agent"] & ExplainerAgent["Explainer Agent [GenAI]"] & AnomalyAgent["Anomaly & Fraud Detection Agent"] & HITL["Human-in-the-loop Safety System"] & AuthService["Auth Service OAuth2 / Firebase Auth"] & CollabService["Collaborative Shared Expense Module"]
-    DecisionAgent --> IncomeAgent & SpendingAgent & GoalPlanner & InvestmentRec & ChurnModel & AnomalyAgent & ExplainerAgent & HITL
+    Backend --> IncomeAgent["Income Analyzer Agent"] 
+    Backend --> SpendingAgent["Spending Classifier Agent"] 
+    Backend --> GoalPlanner["Goal Planner Agent [GenAI]"] 
+    Backend --> InvestmentRec["Investment Recommender Agent"] 
+    Backend --> ChurnModel["Churn Prediction ML Model"] 
+    Backend --> DecisionAgent["Decision-Making Agent"] 
+    Backend --> ExplainerAgent["Explainer Agent [GenAI]"] 
+    Backend --> AnomalyAgent["Anomaly & Fraud Detection Agent"] 
+    Backend --> HITL["Human-in-the-loop Safety System"] 
+    Backend --> AuthService["Auth Service OAuth2 / Firebase Auth"] 
+    Backend --> CollabService["Collaborative Shared Expense Module"]
+
+    DecisionAgent --> IncomeAgent 
+    DecisionAgent --> SpendingAgent 
+    DecisionAgent --> GoalPlanner 
+    DecisionAgent --> InvestmentRec 
+    DecisionAgent --> ChurnModel 
+    DecisionAgent --> AnomalyAgent 
+    DecisionAgent --> ExplainerAgent 
+    DecisionAgent --> HITL
+
     Backend -- Encrypted Reads/Writes --> DB["Encrypted Database"]
-    DB --> IncomeAgent & SpendingAgent & GoalPlanner & InvestmentRec & ChurnModel & AnomalyAgent & DecisionAgent
+    DB --> IncomeAgent 
+    DB --> SpendingAgent 
+    DB --> GoalPlanner 
+    DB --> InvestmentRec 
+    DB --> ChurnModel 
+    DB --> AnomalyAgent 
+    DB --> DecisionAgent
+
     Frontend --> OfflineCache["Offline Storage IndexedDB / PWA Cache"]
     OfflineCache -- Sync --> Backend
-    CollabService --> DB & DecisionAgent & Frontend
+
+    CollabService --> DB 
+    CollabService --> DecisionAgent 
+    CollabService --> Frontend
+
     InvestmentRec -- Calls --> FinanceAPIs["Mock Finance APIs Zerodha/Groww"]
     GoalPlanner -- Calls --> GPTAPI["OpenAI GPT-4 API"]
     ExplainerAgent -- Calls --> GPTAPI
     AuthService -- Token --> Frontend
-    style UI fill:#f9f,stroke:#333,stroke-width:2px
-    style Frontend fill:#aaf,stroke:#333,stroke-width:2px
-    style Backend fill:#bbf,stroke:#333,stroke-width:2px
-    style HITL fill:#fbb,stroke:#333,stroke-width:2px
-    style DB fill:#afa,stroke:#333,stroke-width:2px
-    style OfflineCache fill:#fea,stroke:#333,stroke-width:2px
-    style GPTAPI fill:#fcf,stroke:#333,stroke-width:2px
+
 
