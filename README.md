@@ -20,7 +20,7 @@ It is **Gen Z-centric**, safety-first, and designed to be explainable, collabora
 
 ---
 
-## 🚀 MVP Feature List
+## Feature List
 
 | Feature                             | Description                                                                 |
 |-------------------------------------|-----------------------------------------------------------------------------|
@@ -42,7 +42,7 @@ It is **Gen Z-centric**, safety-first, and designed to be explainable, collabora
 
 ---
 
-## 🧠 System Architecture (Mermaid.js)
+## System Architecture
 
 ```mermaid
 
