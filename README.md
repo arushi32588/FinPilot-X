@@ -1,4 +1,4 @@
-# 💸 FinPilot X: Your Autonomous AI Wealth Avatar
+# FinPilot X: Your Finance AI Alter Ego!
 
 > GenAI + Multi-Agent Fintech System with ML + Human-in-the-Loop Safety + Gamified UX  
 > 🛠️ Built for students & early earners to take control of their finances — smartly, securely, and collaboratively.
