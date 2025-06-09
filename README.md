@@ -1,13 +1,13 @@
 # FinPilot X: Your Finance AI Alter Ego!
 
 > GenAI + Multi-Agent Fintech System with ML + Human-in-the-Loop Safety + Gamified UX  
-> 🛠️ Built for students & early earners to take control of their finances — smartly, securely, and collaboratively.
+> Built for students & early earners to take control of their finances — smartly, securely, and collaboratively.
 
 ---
 
-## 🔍 Project Overview
+## Project Overview
 
-**FinPilot X** is a real-time, AI-powered, multi-agent personal finance platform. It acts as your **autonomous financial co-pilot**, helping you:
+**FinPilot X** is a real-time, AI-based, multi-agent personal finance platform. It acts as your **autonomous financial co-pilot**, helping you:
 
 - Track income and spending
 - Plan goals using natural language
@@ -16,7 +16,7 @@
 - Make decisions together with AI
 - And **gamify financial literacy**
 
-It is **Gen Z-centric**, safety-first, and designed to be explainable, collaborative, and offline-capable.
+It is a safety-first platform, and is designed to be explainable, collaborative, and offline-capable.
 
 ---
 
