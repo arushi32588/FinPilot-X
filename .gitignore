@@ -22,7 +22,4 @@ build/
 
 # OS
 .DS_Store
-Thumbs.db
-
-# Firebase key
-backend/firebase_key.json 
+Thumbs.db 

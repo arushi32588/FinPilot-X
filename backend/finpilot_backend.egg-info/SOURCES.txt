@@ -1,0 +1,6 @@
+setup.py
+finpilot_backend.egg-info/PKG-INFO
+finpilot_backend.egg-info/SOURCES.txt
+finpilot_backend.egg-info/dependency_links.txt
+finpilot_backend.egg-info/requires.txt
+finpilot_backend.egg-info/top_level.txt

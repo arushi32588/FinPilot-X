@@ -1,21 +1,40 @@
-# Database Schema for FinPilot X
+# 🔐 Encrypted DB Schema & Plan for FinPilot X
 
-## Collection: transactions
+## 🔸 Transactions (Collection)
+| Field          | Type     | Description                              | Encrypted? |
+|----------------|----------|------------------------------------------|------------|
+| date           | string   | ISO date of transaction                  | ❌         |
+| category       | string   | Main tag like Food, Transport            | ❌         |
+| subcategory    | string   | Specific detail like "Zomato"            | ✅         |
+| note           | string   | Optional free-text                       | ✅         |
+| amount         | number   | INR value                                | ❌         |
+| income_expense | string   | "Income" or "Expense"                    | ❌         |
+| user_id        | string   | UID from Firebase Auth                   | ❌         |
 
-| Field        | Type     | Encrypted? | Description                           |
-|--------------|----------|------------|-------------------------------------|
-| user_id      | string   | No         | User unique ID                      |
-| timestamp    | datetime | No         | When transaction happened           |
-| amount       | number   | No         | Amount of transaction                |
-| type         | string   | No         | 'income' or 'expense'                |
-| category     | string   | No         | Classified category (e.g. Food)      |
-| subcategory  | string   | Yes        | Detailed description (encrypted)    |
-| note         | string   | Yes        | Additional notes (encrypted)         |
-| description  | string   | Yes        | Original transaction description (encrypted) |
+## 🔸 UserSettings (Collection)
+| Field            | Type     | Description                           | Encrypted? |
+|------------------|----------|---------------------------------------|------------|
+| user_id          | string   | Firebase Auth UID                     | ❌         |
+| avatar_name      | string   | Chosen avatar name                    | ❌         |
+| avatar_style     | string   | e.g. "Sassy", "Minimalist"            | ❌         |
+| notify_goals     | boolean  | Enable goal reminders                 | ❌         |
+| risk_preference  | string   | "Conservative", "Moderate", "Aggro"  | ❌         |
 
-## Encryption Strategy
+## 🔸 AgentResults (Collection)
+| Field             | Type     | Description                              | Encrypted? |
+|-------------------|----------|------------------------------------------|------------|
+| user_id           | string   | Firebase UID                             | ❌         |
+| agent_type        | string   | e.g., "ChurnPredictor", "Explainer"      | ❌         |
+| timestamp         | string   | ISO datetime                             | ❌         |
+| result_summary    | string   | Text summary from agent                  | ✅         |
+| related_txn_ids   | array    | Related transaction IDs                  | ❌         |
 
-- Use AES symmetric encryption via `cryptography.fernet`.
-- Encrypt `subcategory`, `note`, `description` fields before saving.
-- Store encryption key securely in environment variable `FINPILOT_ENC_KEY`.
-- Decrypt fields after fetching before displaying or processing.
+## 🔐 Encryption Plan
+- Sensitive text fields (like `note`, `subcategory`, `result_summary`) are AES-encrypted.
+- Symmetric key stored securely using `.env` file.
+- All encryption and decryption handled in backend only.
+
+## ✅ DB Chosen: Firebase Firestore
+- Pros: Seamless integration with Firebase Auth, real-time sync, no self-hosting
+- Tradeoff: Pricing can increase at scale, but ideal for student MVP
+
