@@ -6,6 +6,7 @@ const Sidebar = () => {
   const { pathname } = useLocation();
   const { isDarkMode, toggleTheme } = useTheme();
   const [isTransactionsOpen, setIsTransactionsOpen] = useState(true);
+  const [isIncomeOpen, setIsIncomeOpen] = useState(true);
 
   const navItem = (to, label, icon, isSubItem = false) => (
     <Link
@@ -96,6 +97,51 @@ const Sidebar = () => {
         flexDirection: 'column'
       }}>
         {navItem("/", "Dashboard", "📊")}
+        
+        {/* Income Section - With Dropdown */}
+        <div>
+          <button
+            onClick={() => setIsIncomeOpen(!isIncomeOpen)}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              padding: '0.75rem 1rem',
+              borderRadius: '0.5rem',
+              marginBottom: '0.5rem',
+              transition: 'all 0.2s ease',
+              backgroundColor: pathname.startsWith('/income')
+                ? (isDarkMode ? '#3b82f6' : '#1e40af')
+                : 'transparent',
+              color: pathname.startsWith('/income')
+                ? 'white'
+                : (isDarkMode ? '#e5e7eb' : '#4b5563'),
+              border: 'none',
+              width: '100%',
+              textAlign: 'left',
+              cursor: 'pointer',
+              fontSize: '0.95rem',
+              fontWeight: pathname.startsWith('/income') ? '500' : '400',
+            }}
+          >
+            <span style={{ marginRight: '0.75rem', fontSize: '1.25rem' }}>💰</span>
+            Income
+            <span style={{ 
+              marginLeft: 'auto',
+              transform: isIncomeOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+              transition: 'transform 0.2s ease'
+            }}>
+              ▼
+            </span>
+          </button>
+          {isIncomeOpen && (
+            <div style={{ marginBottom: '0.5rem' }}>
+              {navItem("/income/summary", "Income Summary", "📊", true)}
+              {navItem("/income/analyzer", "Income Analyzer", "🔍", true)}
+            </div>
+          )}
+        </div>
+        
+        {/* Transactions Section - With Dropdown */}
         <div>
           <button
             onClick={() => setIsTransactionsOpen(!isTransactionsOpen)}
@@ -137,7 +183,13 @@ const Sidebar = () => {
             </div>
           )}
         </div>
+        
+        {/* Financial Goals - Standalone */}
         {navItem("/goals", "Financial Goals", "🎯")}
+        
+        {/* Decision Explainer - Standalone (Added after Financial Goals) */}
+        {navItem("/explainer", "Decision Explainer", "💡")}
+        
         {navItem("/insights", "Analytics", "📈")}
       </nav>
 

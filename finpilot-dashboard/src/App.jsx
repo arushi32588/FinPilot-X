@@ -5,7 +5,10 @@ import Transactions from './pages/Transactions';
 import Goals from './pages/Goals';
 import Insights from './pages/Insights';
 import SpendingClassifierPage from './pages/SpendingClassifierPage';
+import IncomeAnalyzerPage from './pages/IncomeAnalyzerPage';
+import ExplainerPage from './pages/ExplainerPage';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
+import IncomeSummary from './pages/IncomeSummary';
 
 const AppContent = () => {
   const { isDarkMode } = useTheme();
@@ -23,8 +26,11 @@ const AppContent = () => {
         }}>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/income/summary" element={<IncomeSummary />} />
+            <Route path="/income/analyzer" element={<IncomeAnalyzerPage />} />
             <Route path="/transactions" element={<Transactions />} />
             <Route path="/transactions/classifier" element={<SpendingClassifierPage />} />
+            <Route path="/explainer" element={<ExplainerPage />} />
             <Route path="/goals" element={<Goals />} />
             <Route path="/insights" element={<Insights />} />
           </Routes>
