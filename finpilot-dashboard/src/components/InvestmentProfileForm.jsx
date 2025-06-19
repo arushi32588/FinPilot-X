@@ -46,7 +46,7 @@ const InvestmentProfileForm = ({ onSubmit, initialValues = {} }) => {
           display: 'block',
           fontSize: '0.875rem',
           fontWeight: '500',
-          color: isDarkMode ? '#e5e7eb' : '#4b5563',
+          color: '#111',
           marginBottom: '0.5rem'
         }}>
           Investment Goal
@@ -81,7 +81,7 @@ const InvestmentProfileForm = ({ onSubmit, initialValues = {} }) => {
           display: 'block',
           fontSize: '0.875rem',
           fontWeight: '500',
-          color: isDarkMode ? '#e5e7eb' : '#4b5563',
+          color: '#111',
           marginBottom: '0.5rem'
         }}>
           Target Amount (₹)
@@ -110,7 +110,7 @@ const InvestmentProfileForm = ({ onSubmit, initialValues = {} }) => {
           display: 'block',
           fontSize: '0.875rem',
           fontWeight: '500',
-          color: isDarkMode ? '#e5e7eb' : '#4b5563',
+          color: '#111',
           marginBottom: '0.5rem'
         }}>
           Monthly Investment Capacity (₹)
@@ -139,7 +139,7 @@ const InvestmentProfileForm = ({ onSubmit, initialValues = {} }) => {
           display: 'block',
           fontSize: '0.875rem',
           fontWeight: '500',
-          color: isDarkMode ? '#e5e7eb' : '#4b5563',
+          color: '#111',
           marginBottom: '0.5rem'
         }}>
           Current Investments (₹)
@@ -168,7 +168,7 @@ const InvestmentProfileForm = ({ onSubmit, initialValues = {} }) => {
           display: 'block',
           fontSize: '0.875rem',
           fontWeight: '500',
-          color: isDarkMode ? '#e5e7eb' : '#4b5563',
+          color: '#111',
           marginBottom: '0.5rem'
         }}>
           Annual Income Range
@@ -202,7 +202,7 @@ const InvestmentProfileForm = ({ onSubmit, initialValues = {} }) => {
           display: 'block',
           fontSize: '0.875rem',
           fontWeight: '500',
-          color: isDarkMode ? '#e5e7eb' : '#4b5563',
+          color: '#111',
           marginBottom: '0.5rem'
         }}>
           Investment Experience
@@ -234,7 +234,7 @@ const InvestmentProfileForm = ({ onSubmit, initialValues = {} }) => {
           display: 'block',
           fontSize: '0.875rem',
           fontWeight: '500',
-          color: isDarkMode ? '#e5e7eb' : '#4b5563',
+          color: '#111',
           marginBottom: '0.5rem'
         }}>
           Risk Tolerance
@@ -266,7 +266,7 @@ const InvestmentProfileForm = ({ onSubmit, initialValues = {} }) => {
           display: 'block',
           fontSize: '0.875rem',
           fontWeight: '500',
-          color: isDarkMode ? '#e5e7eb' : '#4b5563',
+          color: '#111',
           marginBottom: '0.5rem'
         }}>
           Investment Time Horizon (months)
@@ -325,7 +325,7 @@ const InvestmentProfileForm = ({ onSubmit, initialValues = {} }) => {
           display: 'block',
           fontSize: '0.875rem',
           fontWeight: '500',
-          color: isDarkMode ? '#e5e7eb' : '#4b5563',
+          color: '#111',
           marginBottom: '0.5rem'
         }}>
           Expected Inflation Rate
