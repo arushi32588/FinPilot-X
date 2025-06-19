@@ -1,0 +1,130 @@
+import React, { useState } from 'react';
+import { useTheme } from '../context/ThemeContext';
+import { auth } from '../firebase';
+import { createUserWithEmailAndPassword, sendEmailVerification, updateProfile } from 'firebase/auth';
+import { Link } from 'react-router-dom';
+
+const Register = () => {
+  const { isDarkMode } = useTheme();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState('');
+  const [displayName, setDisplayName] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+    setSuccess('');
+    if (!displayName.trim()) {
+      setError('Display name is required.');
+      setLoading(false);
+      return;
+    }
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      await updateProfile(userCredential.user, { displayName });
+      await sendEmailVerification(userCredential.user);
+      setSuccess('Registration successful! Please check your email to verify your account.');
+    } catch (err) {
+      setError(err.message);
+    }
+    setLoading(false);
+  };
+
+  return (
+    <div style={{
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      background: isDarkMode ? '#111827' : '#f9fafb',
+    }}>
+      <form onSubmit={handleSubmit} style={{
+        background: isDarkMode ? '#1f2937' : '#fff',
+        padding: '2rem',
+        borderRadius: '1rem',
+        boxShadow: '0 4px 24px rgba(0,0,0,0.08)',
+        width: '100%',
+        maxWidth: 400,
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '1.5rem',
+      }}>
+        <h2 style={{
+          color: isDarkMode ? '#e5e7eb' : '#1f2937',
+          fontWeight: 700,
+          fontSize: '1.5rem',
+          marginBottom: '0.5rem',
+        }}>Register</h2>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          required
+          style={{
+            padding: '0.75rem',
+            borderRadius: '0.5rem',
+            border: `1px solid ${isDarkMode ? '#374151' : '#d1d5db'}`,
+            background: isDarkMode ? '#111827' : '#f3f4f6',
+            color: isDarkMode ? '#e5e7eb' : '#1f2937',
+            fontSize: '1rem',
+          }}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+          required
+          style={{
+            padding: '0.75rem',
+            borderRadius: '0.5rem',
+            border: `1px solid ${isDarkMode ? '#374151' : '#d1d5db'}`,
+            background: isDarkMode ? '#111827' : '#f3f4f6',
+            color: isDarkMode ? '#e5e7eb' : '#1f2937',
+            fontSize: '1rem',
+          }}
+        />
+        <input
+          type="text"
+          placeholder="Display Name"
+          value={displayName}
+          onChange={e => setDisplayName(e.target.value)}
+          required
+          style={{
+            padding: '0.75rem',
+            borderRadius: '0.5rem',
+            border: `1px solid ${isDarkMode ? '#374151' : '#d1d5db'}`,
+            background: isDarkMode ? '#111827' : '#f3f4f6',
+            color: isDarkMode ? '#e5e7eb' : '#1f2937',
+            fontSize: '1rem',
+          }}
+        />
+        {error && <div style={{ color: '#ef4444', fontSize: '0.95rem' }}>{error}</div>}
+        {success && <div style={{ color: '#22c55e', fontSize: '0.95rem' }}>{success}</div>}
+        <button type="submit" disabled={loading} style={{
+          padding: '0.75rem 1.5rem',
+          background: isDarkMode ? '#3b82f6' : '#2563eb',
+          color: '#fff',
+          border: 'none',
+          borderRadius: '0.5rem',
+          fontWeight: 600,
+          fontSize: '1rem',
+          cursor: 'pointer',
+          opacity: loading ? 0.7 : 1,
+        }}>
+          {loading ? 'Registering...' : 'Register'}
+        </button>
+        <div style={{ fontSize: '0.95rem', color: isDarkMode ? '#9ca3af' : '#6b7280' }}>
+          Already have an account? <Link to="/login" style={{ color: isDarkMode ? '#60a5fa' : '#2563eb' }}>Login</Link>
+        </div>
+      </form>
+    </div>
+  );
+};
+
+export default Register; 

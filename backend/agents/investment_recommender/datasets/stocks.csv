@@ -1,0 +1,16 @@
+symbol,company_name,sector,date,close,returns_1yr,volatility,market_cap,pe_ratio
+RELIANCE,Reliance Industries,Energy,2024-01-01,2450.75,18.5,15.2,1500000,25.4
+TCS,Tata Consultancy Services,Technology,2024-01-01,3850.25,16.8,14.5,1200000,28.6
+HDFCBANK,HDFC Bank,Banking,2024-01-01,1650.30,15.2,13.8,900000,22.5
+RELIANCE,Reliance Industries,Energy,2024-01-02,2465.30,18.5,15.2,1500000,25.4
+TCS,Tata Consultancy Services,Technology,2024-01-02,3875.60,16.8,14.5,1200000,28.6
+HDFCBANK,HDFC Bank,Banking,2024-01-02,1665.45,15.2,13.8,900000,22.5
+RELIANCE,Reliance Industries,Energy,2024-01-03,2480.15,18.5,15.2,1500000,25.4
+TCS,Tata Consultancy Services,Technology,2024-01-03,3890.45,16.8,14.5,1200000,28.6
+HDFCBANK,HDFC Bank,Banking,2024-01-03,1675.60,15.2,13.8,900000,22.5
+RELIANCE,Reliance Industries,Energy,2024-01-04,2495.30,18.5,15.2,1500000,25.4
+TCS,Tata Consultancy Services,Technology,2024-01-04,3905.60,16.8,14.5,1200000,28.6
+HDFCBANK,HDFC Bank,Banking,2024-01-04,1685.45,15.2,13.8,900000,22.5
+RELIANCE,Reliance Industries,Energy,2024-01-05,2510.15,18.5,15.2,1500000,25.4
+TCS,Tata Consultancy Services,Technology,2024-01-05,3920.45,16.8,14.5,1200000,28.6
+HDFCBANK,HDFC Bank,Banking,2024-01-05,1695.60,15.2,13.8,900000,22.5 

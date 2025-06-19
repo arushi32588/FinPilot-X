@@ -1,0 +1,8 @@
+{
+    "salary": ["salary", "stipend", "payroll"],
+    "freelance": ["freelance", "contract", "consult"],
+    "dividends": ["dividend", "interest"],
+    "rental": ["rent", "lease"],
+    "gift": ["gift", "present"],
+    "other": []
+}

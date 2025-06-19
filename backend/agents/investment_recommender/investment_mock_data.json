@@ -1,0 +1,113 @@
+[
+    {
+      "id": "inv001",
+      "name": "SBI Recurring Deposit",
+      "type": "Recurring Deposit",
+      "risk": "Low",
+      "min_investment": 500,
+      "duration_months": 12,
+      "expected_return": "6.5%",
+      "suitable_for": ["Student", "Freelancer"],
+      "goal_type": ["Travel", "Emergency Fund"]
+    },
+    {
+      "id": "inv002",
+      "name": "Post Office RD",
+      "type": "Recurring Deposit",
+      "risk": "Low",
+      "min_investment": 500,
+      "duration_months": 12,
+      "expected_return": "6.7%",
+      "suitable_for": ["Student"],
+      "goal_type": ["Short-Term", "Gadgets"]
+    },
+    {
+      "id": "inv003",
+      "name": "Nifty 50 Index Fund",
+      "type": "Index Fund",
+      "risk": "Medium",
+      "min_investment": 1000,
+      "duration_months": 36,
+      "expected_return": "10.5%",
+      "suitable_for": ["Freelancer", "Part-Time Earner"],
+      "goal_type": ["Education", "General Saving"]
+    },
+    {
+      "id": "inv004",
+      "name": "Sensex ETF",
+      "type": "Index Fund",
+      "risk": "Medium",
+      "min_investment": 1000,
+      "duration_months": 24,
+      "expected_return": "11.2%",
+      "suitable_for": ["Part-Time Earner", "Early Full-Time"],
+      "goal_type": ["Long-Term", "Higher Studies"]
+    },
+    {
+      "id": "inv005",
+      "name": "Parag Parikh Flexi Cap Fund",
+      "type": "Mutual Fund",
+      "risk": "High",
+      "min_investment": 500,
+      "duration_months": 60,
+      "expected_return": "13.0%",
+      "suitable_for": ["Early Full-Time"],
+      "goal_type": ["Wealth Building"]
+    },
+    {
+      "id": "inv006",
+      "name": "Quant Active Fund",
+      "type": "Mutual Fund",
+      "risk": "High",
+      "min_investment": 500,
+      "duration_months": 36,
+      "expected_return": "14.5%",
+      "suitable_for": ["Part-Time Earner", "Early Full-Time"],
+      "goal_type": ["Business", "Career Growth"]
+    },
+    {
+      "id": "inv007",
+      "name": "Liquid Overnight Fund",
+      "type": "Liquid Fund",
+      "risk": "Low",
+      "min_investment": 1000,
+      "duration_months": 1,
+      "expected_return": "5.5%",
+      "suitable_for": ["Student", "Freelancer"],
+      "goal_type": ["Emergency Fund"]
+    },
+    {
+      "id": "inv008",
+      "name": "Green ESG Fund",
+      "type": "Thematic Fund",
+      "risk": "Medium",
+      "min_investment": 1000,
+      "duration_months": 24,
+      "expected_return": "10.0%",
+      "suitable_for": ["Early Full-Time"],
+      "goal_type": ["Climate Conscious", "General Saving"]
+    },
+    {
+      "id": "inv009",
+      "name": "Tesla Fractional Stock",
+      "type": "Fractional Stock",
+      "risk": "High",
+      "min_investment": 1000,
+      "duration_months": 60,
+      "expected_return": "Variable",
+      "suitable_for": ["Early Full-Time", "Part-Time Earner"],
+      "goal_type": ["Tech Enthusiast", "High Risk"]
+    },
+    {
+      "id": "inv010",
+      "name": "Apple Fractional Stock",
+      "type": "Fractional Stock",
+      "risk": "High",
+      "min_investment": 1000,
+      "duration_months": 48,
+      "expected_return": "Variable",
+      "suitable_for": ["Early Full-Time", "Freelancer"],
+      "goal_type": ["Tech Upgrade", "Wealth Building"]
+    }
+  ]
+  

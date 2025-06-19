@@ -1,0 +1,116 @@
+[
+  {
+    "timestamp": "2025-06-19T13:59:32.456194",
+    "recommendation": {
+      "central_summary": {
+        "total_corpus_nominal": "\u20b99,846,233",
+        "inflation_adjusted_value": "\u20b96,548,307",
+        "target_goal_future_value": "\u20b97,518,151",
+        "goal_gap": "\u20b92,328,081 Surplus",
+        "goal_gap_status": "Surplus"
+      },
+      "recommended_portfolio": [
+        {
+          "name": "Parag Parikh Flexi Cap Fund",
+          "type": "mutual_fund",
+          "code": "118227",
+          "allocation": "40.0%",
+          "category": "Flexi Cap",
+          "rationale": "The initial portfolio lacked diversification across fund managers and asset types beyond a single hybrid fund. Parag Parikh Flexi Cap Fund is a high-conviction choice for its consistent long-term performance, value-oriented approach, and unique strategy of investing a portion in global equities (e.g., US tech giants). This provides valuable international diversification, a key best practice for Indian investors. Given the user's high-risk tolerance and 7-year horizon, this fund aligns well with capital appreciation goals.",
+          "expected_return": "15.00%",
+          "expected_nominal_return": "15.00%",
+          "inflation_rate": "6.00%",
+          "real_return": "8.49%",
+          "nominal_future_value": "\u20b94,171,108",
+          "inflation_adjusted_value": "\u20b92,774,025",
+          "what_this_means": "This is the estimated value of your investment in today's money, after accounting for inflation. It helps you understand the real purchasing power of your future corpus.",
+          "risk_level": "Medium",
+          "liquidity": "High",
+          "micro_invest_enabled": true,
+          "min_investment": 1000,
+          "reasoning": "The initial portfolio lacked diversification across fund managers and asset types beyond a single hybrid fund. Parag Parikh Flexi Cap Fund is a high-conviction choice for its consistent long-term performance, value-oriented approach, and unique strategy of investing a portion in global equities (e.g., US tech giants). This provides valuable international diversification, a key best practice for Indian investors. Given the user's high-risk tolerance and 7-year horizon, this fund aligns well with capital appreciation goals."
+        },
+        {
+          "name": "Mirae Asset Large Cap Fund",
+          "type": "mutual_fund",
+          "code": "118742",
+          "allocation": "35.0%",
+          "category": "Large Cap",
+          "rationale": "To balance the flexi-cap allocation and provide a strong foundation, Mirae Asset Large Cap Fund is recommended. It invests in well-established, market-leading Indian companies, offering relative stability and liquidity compared to mid/small-cap funds. This is crucial for a beginner investor to build a robust core equity portfolio, ensuring exposure to the backbone of the Indian economy and benefiting from strong corporate earnings and domestic consumption trends.",
+          "expected_return": "13.00%",
+          "expected_nominal_return": "13.00%",
+          "inflation_rate": "6.00%",
+          "real_return": "6.60%",
+          "nominal_future_value": "\u20b93,365,493",
+          "inflation_adjusted_value": "\u20b92,238,245",
+          "what_this_means": "This is the estimated value of your investment in today's money, after accounting for inflation. It helps you understand the real purchasing power of your future corpus.",
+          "risk_level": "Medium",
+          "liquidity": "High",
+          "micro_invest_enabled": true,
+          "min_investment": 1000,
+          "reasoning": "To balance the flexi-cap allocation and provide a strong foundation, Mirae Asset Large Cap Fund is recommended. It invests in well-established, market-leading Indian companies, offering relative stability and liquidity compared to mid/small-cap funds. This is crucial for a beginner investor to build a robust core equity portfolio, ensuring exposure to the backbone of the Indian economy and benefiting from strong corporate earnings and domestic consumption trends."
+        },
+        {
+          "name": "ICICI Prudential Balanced Advantage Fund",
+          "type": "mutual_fund",
+          "code": "109886",
+          "allocation": "25.0%",
+          "category": "Hybrid Scheme - Balanced Advantage",
+          "rationale": "The initial portfolio was heavily reliant on a single balanced advantage fund. While good, it lacked further diversification. This fund is retained but with a reduced allocation. It dynamically manages exposure between equities and debt based on market valuations, which is ideal for a medium-term horizon (7 years) and for a beginner investor. It helps cushion market volatility during downturns while capturing upside, aligning with the guideline for 'medium term' investments.",
+          "expected_return": "12.00%",
+          "expected_nominal_return": "12.00%",
+          "inflation_rate": "6.00%",
+          "real_return": "5.66%",
+          "nominal_future_value": "\u20b92,309,632",
+          "inflation_adjusted_value": "\u20b91,536,037",
+          "what_this_means": "This is the estimated value of your investment in today's money, after accounting for inflation. It helps you understand the real purchasing power of your future corpus.",
+          "risk_level": "Medium",
+          "liquidity": "High",
+          "micro_invest_enabled": true,
+          "min_investment": 1000,
+          "reasoning": "The initial portfolio was heavily reliant on a single balanced advantage fund. While good, it lacked further diversification. This fund is retained but with a reduced allocation. It dynamically manages exposure between equities and debt based on market valuations, which is ideal for a medium-term horizon (7 years) and for a beginner investor. It helps cushion market volatility during downturns while capturing upside, aligning with the guideline for 'medium term' investments."
+        }
+      ],
+      "micro_investment_plan": {
+        "weekly_investment": 13736.3,
+        "weeks_to_goal": 364,
+        "total_contribution": 5000016
+      },
+      "growth_simulations": {
+        "normal": "13.55% growth",
+        "crash": "7.0% growth",
+        "boom": "19.0% growth",
+        "analysis": {
+          "best_case": "In the best-case scenario, your portfolio benefits from strong market performance, resulting in higher-than-expected returns and faster achievement of your financial goals.",
+          "expected_case": "In the expected scenario, your portfolio grows at a steady pace based on historical averages, helping you stay on track to meet your investment objectives.",
+          "worst_case": "In the worst-case scenario, your portfolio faces adverse market conditions, leading to lower or even negative returns. However, diversification and regular investing can help mitigate losses and support recovery over time."
+        }
+      },
+      "risk_analysis": {
+        "portfolio_risk": "Medium",
+        "diversification_score": "Low",
+        "liquidity_score": "High",
+        "tips": [
+          "Your portfolio is well-diversified across different asset classes",
+          "Consider increasing equity exposure if you can handle more risk",
+          "Keep an emergency fund in liquid investments"
+        ]
+      },
+      "nudge": "Consider reducing equity exposure to manage risk better",
+      "gamification": {
+        "level": 1,
+        "xp": 0,
+        "streak": "0 weeks",
+        "next_level": "Level 2",
+        "xp_to_next": "1000 XP needed"
+      },
+      "investment_tips": [
+        "Start investing early to benefit from compound growth",
+        "Diversify across different asset classes",
+        "Review your portfolio quarterly",
+        "Consider tax implications of your investments",
+        "Keep an emergency fund before investing"
+      ]
+    }
+  }
+]
