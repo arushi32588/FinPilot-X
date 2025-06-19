@@ -184,6 +184,16 @@ const InvestmentRecommender = () => {
     console.log('micro_investment_plan:', recommendations.micro_investment_plan);
   }
 
+  // Calculate goal gap in frontend
+  let computedGoalGap = null;
+  if (recommendations && recommendations.central_summary) {
+    const targetGoalFV = Number(recommendations.central_summary.target_goal_future_value);
+    const inflationAdjustedCorpus = Number(recommendations.central_summary.inflation_adjusted_value);
+    if (!isNaN(targetGoalFV) && !isNaN(inflationAdjustedCorpus)) {
+      computedGoalGap = targetGoalFV - inflationAdjustedCorpus;
+    }
+  }
+
   return (
     <div style={{
       maxWidth: '80rem',
@@ -358,9 +368,9 @@ const InvestmentRecommender = () => {
                           note: 'User goal grown by inflation'
                         }, {
                           label: 'Goal Gap',
-                          value: recommendations.central_summary.goal_gap,
+                          value: computedGoalGap !== null ? computedGoalGap : recommendations.central_summary.goal_gap,
                           note: 'Shortfall or surplus',
-                          color: recommendations.central_summary.goal_gap_status === 'Surplus' ? (isDarkMode ? '#22c55e' : '#16a34a') : (isDarkMode ? '#f87171' : '#dc2626')
+                          color: computedGoalGap !== null ? (computedGoalGap >= 0 ? (isDarkMode ? '#22c55e' : '#16a34a') : (isDarkMode ? '#f87171' : '#dc2626')) : (recommendations.central_summary.goal_gap_status === 'Surplus' ? (isDarkMode ? '#22c55e' : '#16a34a') : (isDarkMode ? '#f87171' : '#dc2626'))
                         }].map((item, idx) => (
                           <div key={idx} style={{
                             background: isDarkMode ? '#374151' : '#f3f4f6',
@@ -374,6 +384,40 @@ const InvestmentRecommender = () => {
                           </div>
                         ))}
                       </div>
+                      {/* What to do? section if Goal Gap is negative */}
+                      {(computedGoalGap !== null ? computedGoalGap < 0 : (Number(recommendations.central_summary.goal_gap) < 0 || (recommendations.central_summary.goal_gap_status && recommendations.central_summary.goal_gap_status !== 'Surplus'))) ? (
+                        <div style={{
+                          marginTop: '1.5rem',
+                          backgroundColor: isDarkMode ? '#f87171' : '#fee2e2',
+                          borderRadius: '0.75rem',
+                          padding: '1.25rem',
+                          border: `1px solid ${isDarkMode ? '#7f1d1d' : '#fecaca'}`
+                        }}>
+                          <h4 style={{
+                            fontSize: '1rem',
+                            fontWeight: '600',
+                            color: isDarkMode ? '#fecaca' : '#991b1b',
+                            marginBottom: '0.75rem',
+                            display: 'flex',
+                            alignItems: 'center'
+                          }}>
+                            <span style={{ marginRight: '0.5rem' }}>❓</span>
+                            What to do?
+                          </h4>
+                          <ul style={{
+                            color: isDarkMode ? '#fecaca' : '#991b1b',
+                            fontSize: '0.95rem',
+                            marginLeft: '1.25rem',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '0.5rem'
+                          }}>
+                            <li>Increase your monthly investment</li>
+                            <li>Extend your goal timeline</li>
+                            <li>Reduce your target goal</li>
+                          </ul>
+                        </div>
+                      ) : null}
                     </div>
                   )}
                   {/* Recommended Portfolio */}
