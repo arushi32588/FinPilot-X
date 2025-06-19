@@ -4,6 +4,7 @@ import InvestmentProfileForm from './InvestmentProfileForm';
 import { useTheme } from '../context/ThemeContext';
 import { auth } from '../firebase';
 import { onAuthStateChanged } from 'firebase/auth';
+import ReactMarkdown from 'react-markdown';
 
 function formatCurrency(val) {
   console.log('formatCurrency input:', val);
@@ -32,6 +33,10 @@ const InvestmentRecommender = () => {
   const { isDarkMode } = useTheme();
   const [saveStatus, setSaveStatus] = useState(null);
   const [user, setUser] = useState(null);
+  const [showPortfolioExplanation, setShowPortfolioExplanation] = useState(false);
+  const [portfolioExplanation, setPortfolioExplanation] = useState(null);
+  const [portfolioExplanationLoading, setPortfolioExplanationLoading] = useState(false);
+  const [portfolioExplanationError, setPortfolioExplanationError] = useState(null);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, setUser);
@@ -88,6 +93,32 @@ const InvestmentRecommender = () => {
       setSaveStatus('success');
     } catch (err) {
       setSaveStatus('error');
+    }
+  };
+
+  const handleExplainPortfolio = async () => {
+    setShowPortfolioExplanation(true);
+    setPortfolioExplanation(null);
+    setPortfolioExplanationError(null);
+    setPortfolioExplanationLoading(true);
+    try {
+      const response = await fetch(`${config.API_BASE_URL}/api/decision-explainer/explain`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          portfolio: recommendations.recommended_portfolio,
+          user_profile: userProfile
+        })
+      });
+      if (!response.ok) {
+        throw new Error('Failed to fetch explanation');
+      }
+      const data = await response.json();
+      setPortfolioExplanation(data);
+    } catch (err) {
+      setPortfolioExplanationError(err.message);
+    } finally {
+      setPortfolioExplanationLoading(false);
     }
   };
 
@@ -537,8 +568,25 @@ const InvestmentRecommender = () => {
                         </div>
                       ))}
                     </div>
-                    {/* Save to Library Button */}
+                    {/* Why this portfolio button */}
                     <div style={{ marginTop: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                      <button
+                        onClick={handleExplainPortfolio}
+                        style={{
+                          padding: '0.75rem 1.5rem',
+                          backgroundColor: isDarkMode ? '#f59e42' : '#fbbf24',
+                          color: isDarkMode ? '#1f2937' : '#1f2937',
+                          borderRadius: '0.5rem',
+                          border: 'none',
+                          fontSize: '1rem',
+                          fontWeight: '500',
+                          cursor: 'pointer',
+                          transition: 'all 0.2s ease',
+                        }}
+                      >
+                        Why this portfolio?
+                      </button>
+                      {/* Save to Library Button */}
                       <button
                         onClick={handleSaveRecommendation}
                         style={{
@@ -569,6 +617,66 @@ const InvestmentRecommender = () => {
                       )}
                     </div>
                   </div>
+
+                  {/* Modal for portfolio explanation */}
+                  {showPortfolioExplanation && (
+                    <div style={{
+                      position: 'fixed',
+                      top: 0,
+                      left: 0,
+                      width: '100vw',
+                      height: '100vh',
+                      background: 'rgba(0,0,0,0.4)',
+                      zIndex: 1000,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}
+                      onClick={() => setShowPortfolioExplanation(false)}
+                    >
+                      <div style={{
+                        background: isDarkMode ? '#1f2937' : '#fff',
+                        borderRadius: '1rem',
+                        padding: '1.2rem',
+                        width: 500,
+                        height: 450,
+                        boxShadow: '0 2px 16px rgba(0,0,0,0.15)',
+                        position: 'relative',
+                        overflow: 'hidden',
+                        display: 'flex',
+                        flexDirection: 'column',
+                      }}
+                        onClick={e => e.stopPropagation()}
+                      >
+                        <button
+                          onClick={() => setShowPortfolioExplanation(false)}
+                          style={{ position: 'absolute', top: 10, right: 14, background: 'none', border: 'none', fontSize: 22, cursor: 'pointer', color: isDarkMode ? '#fbbf24' : '#f59e42' }}
+                          title="Close"
+                        >
+                          ×
+                        </button>
+                        <h3 style={{ fontSize: '1.1rem', fontWeight: 600, marginBottom: '0.75rem', color: isDarkMode ? '#fbbf24' : '#f59e42' }}>Why this portfolio?</h3>
+                        <div style={{ flex: 1, overflowY: 'auto', background: isDarkMode ? '#23272e' : '#f8fafc', borderRadius: 8, padding: '0.75rem' }}>
+                          {portfolioExplanationLoading && <div>Loading explanation...</div>}
+                          {portfolioExplanationError && <div style={{ color: 'red' }}>{portfolioExplanationError}</div>}
+                          {portfolioExplanation && (
+                            <ReactMarkdown
+                              children={portfolioExplanation.explanation || JSON.stringify(portfolioExplanation, null, 2)}
+                              components={{
+                                strong: (props) => <strong style={{color: isDarkMode ? '#fbbf24' : '#f59e42'}} {...props} />,
+                                h4: (props) => <h4 style={{marginTop: '1rem', color: isDarkMode ? '#60a5fa' : '#2563eb'}} {...props} />,
+                                li: (props) => <li style={{marginBottom: 4, paddingLeft: 2}} {...props} />,
+                                ul: (props) => <ul style={{marginBottom: 12, paddingLeft: 18}} {...props} />,
+                                ol: (props) => <ol style={{marginBottom: 12, paddingLeft: 18}} {...props} />,
+                                hr: () => <hr style={{border: 0, borderTop: '1px solid #e5e7eb', margin: '1rem 0'}} />,
+                                p: (props) => <p style={{marginBottom: 8, color: isDarkMode ? '#f3f4f6' : '#1f2937'}} {...props} />,
+                              }}
+                            />
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  )}
 
                   {/* Micro-Investment Plan */}
                   <div style={{
