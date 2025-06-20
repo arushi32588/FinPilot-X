@@ -4,12 +4,12 @@ from jinja2 import Environment, FileSystemLoader
 from typing import Dict, Literal
 from datetime import datetime
 from .safety_filters import validate_decision, sanitize_output
-from ..config import Config
+from backend.config import Config
 
 class ExplainerAgent:
     def __init__(self):
         self.client = Groq(api_key=Config.GROQ_API_KEY)
-        self.env = Environment(loader=FileSystemLoader("backend/agents/prompts"))
+        self.env = Environment(loader=FileSystemLoader("backend/agents/explainer/prompts"))
 
     async def explain(
         self,

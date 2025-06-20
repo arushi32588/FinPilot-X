@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, HTTPException, Query, Request
 from backend.agents.investment_recommender.investment_recommender import InvestmentRecommender
 from backend.agents.investment_recommender.core.micro_invest import suggest_micro_investments
 from typing import List, Dict, Any, Optional
@@ -8,6 +8,10 @@ from dotenv import load_dotenv
 from pydantic import BaseModel
 from datetime import datetime, timedelta
 import json
+from fastapi.responses import JSONResponse
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail, Attachment, FileContent, FileName, FileType, Disposition
+import base64
 
 # Load environment variables
 load_dotenv()
@@ -30,12 +34,19 @@ class UserProfile(BaseModel):
     investment_experience: Optional[str] = "Intermediate"  # Default intermediate experience
     inflation_rate: Optional[float] = 6.0  # Default inflation rate
 
+class EmailRequest(BaseModel):
+    to: str
+    subject: str = 'Your FinPilot Recommendation'
+    text: str = 'Please find your personalized investment recommendation attached.'
+    pdfBase64: str
+    filename: str = 'FinPilot_Recommendation.pdf'
+
 def format_growth_sim(sim):
     if isinstance(sim, dict) and "mean" in sim:
         return f"{sim['mean']}% growth"
     return sim
 
-@router.post("/api/investment-recommender/recommend")
+@router.post("/investment-recommender/recommend")
 async def get_recommendations(user_profile: UserProfile) -> Dict[str, Any]:
     try:
         logger.info("Fetching investment recommendations...")
@@ -258,7 +269,7 @@ async def get_recommendations(user_profile: UserProfile) -> Dict[str, Any]:
             detail=f"Error generating recommendations: {str(e)}"
         )
 
-@router.post("/api/investment-recommender/save")
+@router.post("/investment-recommender/save")
 async def save_recommendation(payload: Dict[str, Any]):
     """
     Save a user's investment recommendation to their library (simple JSON file for demo).
@@ -286,7 +297,7 @@ async def save_recommendation(payload: Dict[str, Any]):
         logger.error(f"Error saving recommendation: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Error saving recommendation: {str(e)}")
 
-@router.get("/api/investment-recommender/library")
+@router.get("/investment-recommender/library")
 async def get_library(user_id: str = Query(...)):
     """
     Get all saved recommendations for a user.
@@ -297,4 +308,37 @@ async def get_library(user_id: str = Query(...)):
         return []
     with open(save_path, 'r') as f:
         data = json.load(f)
-    return data 
+    return data
+
+@router.post('/send-email')
+async def send_email(req: EmailRequest):
+    SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
+    if not SENDGRID_API_KEY:
+        return JSONResponse(status_code=500, content={"error": "SendGrid API key not configured"})
+    try:
+        message = Mail(
+            from_email='your_verified_sender@yourdomain.com',  # Replace with your verified sender
+            to_emails=req.to,
+            subject=req.subject,
+            plain_text_content=req.text,
+        )
+        # Remove base64 prefix if present
+        pdf_data = req.pdfBase64
+        if pdf_data.startswith('data:application/pdf;base64,'):
+            pdf_data = pdf_data.split(',', 1)[1]
+        encoded = pdf_data.encode()
+        attachment = Attachment(
+            FileContent(pdf_data),
+            FileName(req.filename),
+            FileType('application/pdf'),
+            Disposition('attachment')
+        )
+        message.attachment = attachment
+        sg = SendGridAPIClient(SENDGRID_API_KEY)
+        response = sg.send(message)
+        if response.status_code >= 200 and response.status_code < 300:
+            return {"success": True}
+        else:
+            return JSONResponse(status_code=500, content={"error": f"SendGrid error: {response.status_code}"})
+    except Exception as e:
+        return JSONResponse(status_code=500, content={"error": str(e)}) 

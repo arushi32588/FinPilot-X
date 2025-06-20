@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
-from agents.spending_classifier.classifier import SpendingClassifier
+from backend.agents.spending_classifier.classifier import SpendingClassifier
 import os
 import logging
 from typing import List

@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=DM+Sans:wght@400;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* All old global CSS removed for Tailwind-first design. */
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -16,10 +23,12 @@
   box-sizing: border-box;
 }
 
-body {
+body, html, #root {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  line-height: 1.5;
 }
 
 h1 {
@@ -62,4 +71,20 @@ button:focus-visible {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.font-regular { font-weight: 400; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+.letter-spacing-wide { letter-spacing: 0.04em; }
+
+/* Skeleton shimmer */
+.skeleton {
+  background: linear-gradient(90deg, #23263a 25%, #2d334d 50%, #23263a 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.2s infinite linear;
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }

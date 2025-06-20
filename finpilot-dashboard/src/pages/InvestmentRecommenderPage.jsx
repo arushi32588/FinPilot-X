@@ -3,7 +3,7 @@ import InvestmentRecommender from '../components/InvestmentRecommender';
 
 const InvestmentRecommenderPage = () => {
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#0b0c10]">
       <InvestmentRecommender />
     </div>
   );

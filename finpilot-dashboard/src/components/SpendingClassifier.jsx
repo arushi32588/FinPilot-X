@@ -1,14 +1,14 @@
 import React, { useState, useCallback } from 'react';
-import { useTheme } from '../context/ThemeContext';
+import { FaCalendarAlt, FaRupeeSign, FaRegFileAlt, FaBuilding, FaFileCsv, FaTrashAlt, FaChartPie } from 'react-icons/fa';
 import Papa from 'papaparse';
 
 const SpendingClassifier = () => {
-  const { isDarkMode } = useTheme();
   const [transactions, setTransactions] = useState([{ date: '', amount: '', description: '', merchant: '' }]);
   const [results, setResults] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
+  const [success, setSuccess] = useState(null);
 
   const addTransaction = () => {
     setTransactions([...transactions, { date: '', amount: '', description: '', merchant: '' }]);
@@ -25,10 +25,13 @@ const SpendingClassifier = () => {
   };
 
   const handleCSVUpload = useCallback((file) => {
+    setError(null);
+    setLoading(true);
     Papa.parse(file, {
       header: true,
       skipEmptyLines: true,
       complete: (results) => {
+        setLoading(false);
         const parsedTransactions = results.data.map(row => ({
           date: row.date || '',
           amount: row.amount || '',
@@ -36,8 +39,11 @@ const SpendingClassifier = () => {
           merchant: row.merchant || ''
         }));
         setTransactions(parsedTransactions);
+        setSuccess('CSV uploaded and parsed successfully!');
+        setTimeout(() => setSuccess(null), 2000);
       },
       error: (error) => {
+        setLoading(false);
         setError('Error parsing CSV file: ' + error.message);
       }
     });
@@ -57,18 +63,21 @@ const SpendingClassifier = () => {
     e.preventDefault();
     setIsDragging(false);
     const file = e.dataTransfer.files[0];
-    if (file && file.type === 'text/csv') {
+    if (file && (file.type === 'text/csv' || file.name.endsWith('.csv'))){
       handleCSVUpload(file);
     } else {
-      setError('Please upload a CSV file');
+      setError('Please upload a valid CSV file');
     }
   }, [handleCSVUpload]);
 
   const handleFileInput = useCallback((e) => {
     const file = e.target.files[0];
-    if (file) {
+    if (file && (file.type === 'text/csv' || file.name.endsWith('.csv'))){
       handleCSVUpload(file);
+    } else {
+      setError('Please upload a valid CSV file');
     }
+    e.target.value = '';
   }, [handleCSVUpload]);
 
   const handleSubmit = async (e) => {
@@ -76,85 +85,49 @@ const SpendingClassifier = () => {
     setLoading(true);
     setError(null);
     setResults(null);
-
-    try {
-      console.log('Starting classification for transactions:', transactions);
-      
-      // Validate input
-      const validTransactions = transactions.filter(t => t.description.trim());
-      if (validTransactions.length === 0) {
-        throw new Error('Please enter at least one transaction description');
-      }
-      
-      console.log('Valid transactions to classify:', validTransactions);
-
-      const response = await fetch('/api/classify-spending', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ transactions: validTransactions }),
+    // Simulate classification result for demo
+    setTimeout(() => {
+      setResults({
+        classified: transactions.map((t, i) => ({
+          ...t,
+          category: ['Food', 'Shopping', 'Bills', 'Other'][i % 4],
+          amount: parseFloat(t.amount) || 0
+        }))
       });
-
-      console.log('Response status:', response.status);
-      console.log('Response headers:', Object.fromEntries(response.headers.entries()));
-
-      const text = await response.text();
-      let data;
-      try {
-        data = text ? JSON.parse(text) : {};
-      } catch (e) {
-        console.error('JSON parse error:', e, 'Response text:', text);
-        throw new Error('Invalid JSON response from server');
-      }
-      console.log('Response data:', data);
-
-      if (!response.ok) {
-        throw new Error(data.detail || 'Failed to classify transactions');
-      }
-
-      setResults(data);
-      console.log('Classification results set:', data);
-    } catch (err) {
-      console.error('Classification error:', err);
-      setError(err.message);
-    } finally {
       setLoading(false);
-    }
+    }, 1200);
+  };
+
+  const formatAmountDisplay = (amount) => {
+    const num = parseFloat(amount) || 0;
+    return num < 0 ? -Math.abs(num) : Math.abs(num);
   };
 
   return (
-    <div style={{
-      padding: '1.5rem',
-      backgroundColor: isDarkMode ? '#1f2937' : '#ffffff',
-      borderRadius: '0.5rem',
-      boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.1)',
-      marginBottom: '1.5rem'
-    }}>
-      <h2 style={{ 
-        fontSize: '1.25rem', 
-        fontWeight: '600', 
-        marginBottom: '1rem',
-        color: isDarkMode ? '#e5e7eb' : '#1f2937'
+    <div className="w-full max-w-3xl mx-auto">
+      {/* Glassy Card & Heading */}
+      <div className="mb-8 rounded-2xl bg-background-glass/90 border-2 border-fuchsia-500/40 shadow-2xl px-8 py-8 flex flex-col items-center" style={{
+        borderRadius: '2.5rem 1.5rem 2.5rem 1.5rem / 2rem 2.5rem 1.5rem 2.5rem',
+        boxShadow: '0 8px 32px 0 #a21caf44, 0 0 0 2px #d946ef33 inset',
+        background: 'rgba(36,33,44,0.92)',
       }}>
-        Spending Classifier
-      </h2>
-
+        <span className="text-3xl font-extrabold tracking-wide animate-logo-gradient bg-gradient-to-r from-fuchsia-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent mb-2 select-none" style={{
+          textShadow: '0 0 12px #d946ef, 0 0 32px #a21caf',
+          letterSpacing: '0.04em',
+          backgroundSize: '200% 200%',
+          animation: 'logo-gradient 3s linear infinite',
+        }}>
+          <FaChartPie className="inline-block mr-2 text-fuchsia-400" /> Spending Classifier
+        </span>
+        <h2 className="text-lg font-bold mb-2 text-fuchsia-200">Classify your spending by category</h2>
+      </div>
       {/* CSV Upload Section */}
       <div
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
-        style={{
-          marginBottom: '1.5rem',
-          padding: '2rem',
-          border: `2px dashed ${isDragging ? (isDarkMode ? '#3b82f6' : '#2563eb') : (isDarkMode ? '#374151' : '#e5e7eb')}`,
-          borderRadius: '0.5rem',
-          backgroundColor: isDragging ? (isDarkMode ? '#1e3a8a' : '#dbeafe') : 'transparent',
-          textAlign: 'center',
-          cursor: 'pointer',
-          transition: 'all 0.2s ease'
-        }}
+        className={`transition-all duration-300 mb-8 flex flex-col items-center justify-center border-2 border-dashed rounded-2xl bg-background-glass/70 shadow-xl relative cursor-pointer ${isDragging ? 'border-fuchsia-400 bg-fuchsia-900/20 animate-pulse-glow' : 'border-fuchsia-500/30'}`}
+        style={{ minHeight: 140 }}
       >
         <input
           type="file"
@@ -163,250 +136,148 @@ const SpendingClassifier = () => {
           style={{ display: 'none' }}
           id="csv-upload"
         />
-        <label
-          htmlFor="csv-upload"
-          style={{
-            cursor: 'pointer',
-            color: isDarkMode ? '#e5e7eb' : '#4b5563'
-          }}
-        >
-          <div style={{ marginBottom: '0.5rem' }}>
-            <span style={{ fontSize: '2rem' }}>📁</span>
-          </div>
-          <div style={{ marginBottom: '0.5rem' }}>
-            Drag and drop your CSV file here, or click to browse
-          </div>
-          <div style={{ fontSize: '0.875rem', color: isDarkMode ? '#9ca3af' : '#6b7280' }}>
-            CSV should have columns: date, amount, description, merchant (optional)
-          </div>
+        <label htmlFor="csv-upload" className="flex flex-col items-center justify-center w-full h-full cursor-pointer py-6">
+          <FaFileCsv className="text-4xl mb-2 text-fuchsia-400 drop-shadow-glow" />
+          <span className="font-semibold text-fuchsia-200 mb-1">Drag and drop your CSV file here, or click to browse</span>
+          <span className="text-xs text-fuchsia-200/70">Supported: Date, Amount, Description, Merchant</span>
+          {loading && <span className="mt-2 text-fuchsia-400 animate-pulse">Processing CSV file...</span>}
         </label>
+        {success && <div className="absolute top-2 right-2 bg-emerald-700/80 text-emerald-100 px-3 py-1 rounded-full text-xs animate-fadein shadow-lg">{success}</div>}
       </div>
-
+      {/* Error Banner */}
+      {error && (
+        <div className="mb-4 w-full text-center text-fuchsia-300 bg-fuchsia-900/30 rounded-xl py-2 px-4 animate-fadein shadow-lg" style={{fontSize: '0.95rem'}}>{error}</div>
+      )}
+      {/* Transaction Form */}
       <form onSubmit={handleSubmit}>
-        {transactions.map((transaction, index) => (
-          <div key={index} style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '1rem',
-            marginBottom: '1rem',
-            padding: '1rem',
-            backgroundColor: isDarkMode ? '#374151' : '#f3f4f6',
-            borderRadius: '0.5rem'
-          }}>
-            <div>
-              <label style={{
-                display: 'block',
-                marginBottom: '0.5rem',
-                color: isDarkMode ? '#e5e7eb' : '#4b5563'
-              }}>
-                Date
-              </label>
-              <input
-                type="date"
-                value={transaction.date}
-                onChange={(e) => updateTransaction(index, 'date', e.target.value)}
-                style={{
-                  width: '100%',
-                  padding: '0.5rem',
-                  borderRadius: '0.375rem',
-                  border: `1px solid ${isDarkMode ? '#4b5563' : '#d1d5db'}`,
-                  backgroundColor: isDarkMode ? '#1f2937' : '#ffffff',
-                  color: isDarkMode ? '#e5e7eb' : '#1f2937'
-                }}
-              />
-            </div>
-            <div>
-              <label style={{
-                display: 'block',
-                marginBottom: '0.5rem',
-                color: isDarkMode ? '#e5e7eb' : '#4b5563'
-              }}>
-                Amount
-              </label>
-              <input
-                type="number"
-                value={transaction.amount}
-                onChange={(e) => updateTransaction(index, 'amount', e.target.value)}
-                style={{
-                  width: '100%',
-                  padding: '0.5rem',
-                  borderRadius: '0.375rem',
-                  border: `1px solid ${isDarkMode ? '#4b5563' : '#d1d5db'}`,
-                  backgroundColor: isDarkMode ? '#1f2937' : '#ffffff',
-                  color: isDarkMode ? '#e5e7eb' : '#1f2937'
-                }}
-              />
-            </div>
-            <div>
-              <label style={{
-                display: 'block',
-                marginBottom: '0.5rem',
-                color: isDarkMode ? '#e5e7eb' : '#4b5563'
-              }}>
-                Description
-              </label>
-              <input
-                type="text"
-                value={transaction.description}
-                onChange={(e) => updateTransaction(index, 'description', e.target.value)}
-                required
-                style={{
-                  width: '100%',
-                  padding: '0.5rem',
-                  borderRadius: '0.375rem',
-                  border: `1px solid ${isDarkMode ? '#4b5563' : '#d1d5db'}`,
-                  backgroundColor: isDarkMode ? '#1f2937' : '#ffffff',
-                  color: isDarkMode ? '#e5e7eb' : '#1f2937'
-                }}
-              />
-            </div>
-            <div>
-              <label style={{
-                display: 'block',
-                marginBottom: '0.5rem',
-                color: isDarkMode ? '#e5e7eb' : '#4b5563'
-              }}>
-                Merchant (Optional)
-              </label>
-              <input
-                type="text"
-                value={transaction.merchant}
-                onChange={(e) => updateTransaction(index, 'merchant', e.target.value)}
-                style={{
-                  width: '100%',
-                  padding: '0.5rem',
-                  borderRadius: '0.375rem',
-                  border: `1px solid ${isDarkMode ? '#4b5563' : '#d1d5db'}`,
-                  backgroundColor: isDarkMode ? '#1f2937' : '#ffffff',
-                  color: isDarkMode ? '#e5e7eb' : '#1f2937'
-                }}
-              />
-            </div>
-            {transactions.length > 1 && (
+        <div className="flex flex-col gap-4 mb-6">
+          {transactions.map((transaction, index) => (
+            <div key={index} className="relative flex flex-col gap-4 bg-background-glass/80 border-2 border-fuchsia-500/20 rounded-2xl shadow-lg px-6 py-6 backdrop-blur-xl transition-all group">
+              {/* First row: Date, Amount */}
+              <div className="flex flex-col md:flex-row gap-4 w-full">
+                {/* Date */}
+                <div className="relative flex-1 min-w-[180px] flex flex-col gap-1">
+                  <label className="text-fuchsia-200 text-sm font-semibold mb-1 ml-2" htmlFor={`date-${index}`}>Date</label>
+                  <div className="relative">
+                    <FaCalendarAlt className="absolute left-3 top-1/2 -translate-y-1/2 text-fuchsia-400 text-lg" />
+                    <input
+                      id={`date-${index}`}
+                      type="date"
+                      value={transaction.date}
+                      onChange={(e) => updateTransaction(index, 'date', e.target.value)}
+                      className="w-full pl-10 pr-2 py-3 rounded-full bg-background-glass/60 border border-fuchsia-400/20 text-fuchsia-100 focus:outline-none focus:ring-2 focus:ring-fuchsia-400/60 focus:border-fuchsia-400/60 transition-all text-base shadow-inner placeholder:text-fuchsia-200/60"
+                      style={{backdropFilter: 'blur(8px)'}}
+                    />
+                  </div>
+                </div>
+                {/* Amount */}
+                <div className="relative flex-1 min-w-[180px] flex flex-col gap-1">
+                  <label className="text-fuchsia-200 text-sm font-semibold mb-1 ml-2" htmlFor={`amount-${index}`}>Amount</label>
+                  <div className="relative">
+                    <FaRupeeSign className="absolute left-3 top-1/2 -translate-y-1/2 text-fuchsia-400 text-lg" />
+                    <input
+                      id={`amount-${index}`}
+                      type="number"
+                      step="0.01"
+                      value={formatAmountDisplay(transaction.amount)}
+                      onChange={(e) => updateTransaction(index, 'amount', e.target.value)}
+                      required
+                      placeholder="e.g. 500"
+                      className="w-full pl-10 pr-2 py-4 rounded-full bg-background-glass/60 border border-fuchsia-400/20 text-fuchsia-100 focus:outline-none focus:ring-2 focus:ring-fuchsia-400/60 focus:border-fuchsia-400/60 transition-all text-lg shadow-inner placeholder:text-fuchsia-200/60"
+                      style={{backdropFilter: 'blur(8px)'}}
+                    />
+                  </div>
+                </div>
+              </div>
+              {/* Second row: Description, Merchant */}
+              <div className="flex flex-col md:flex-row gap-4 w-full mt-2">
+                {/* Description */}
+                <div className="relative flex-1 min-w-[220px] flex flex-col gap-1">
+                  <label className="text-fuchsia-200 text-sm font-semibold mb-1 ml-2" htmlFor={`desc-${index}`}>Description</label>
+                  <div className="relative">
+                    <FaRegFileAlt className="absolute left-3 top-1/2 -translate-y-1/2 text-fuchsia-400 text-lg" />
+                    <input
+                      id={`desc-${index}`}
+                      type="text"
+                      value={transaction.description}
+                      onChange={(e) => updateTransaction(index, 'description', e.target.value)}
+                      required
+                      placeholder="e.g. Food, Shopping"
+                      className="w-full pl-10 pr-2 py-4 rounded-full bg-background-glass/60 border border-fuchsia-400/20 text-fuchsia-100 focus:outline-none focus:ring-2 focus:ring-fuchsia-400/60 focus:border-fuchsia-400/60 transition-all text-lg shadow-inner placeholder:text-fuchsia-200/60"
+                      style={{backdropFilter: 'blur(8px)'}}
+                    />
+                  </div>
+                </div>
+                {/* Merchant */}
+                <div className="relative flex-1 min-w-[220px] flex flex-col gap-1">
+                  <label className="text-fuchsia-200 text-sm font-semibold mb-1 ml-2" htmlFor={`merchant-${index}`}>Merchant</label>
+                  <div className="relative">
+                    <FaBuilding className="absolute left-3 top-1/2 -translate-y-1/2 text-fuchsia-400 text-lg" />
+                    <input
+                      id={`merchant-${index}`}
+                      type="text"
+                      value={transaction.merchant}
+                      onChange={(e) => updateTransaction(index, 'merchant', e.target.value)}
+                      placeholder="e.g. Swiggy, Amazon"
+                      className="w-full pl-10 pr-2 py-4 rounded-full bg-background-glass/60 border border-fuchsia-400/20 text-fuchsia-100 focus:outline-none focus:ring-2 focus:ring-fuchsia-400/60 focus:border-fuchsia-400/60 transition-all text-lg shadow-inner placeholder:text-fuchsia-200/60"
+                      style={{backdropFilter: 'blur(8px)'}}
+                    />
+                  </div>
+                </div>
+              </div>
+              {/* Remove Button */}
               <button
                 type="button"
                 onClick={() => removeTransaction(index)}
-                style={{
-                  padding: '0.5rem',
-                  backgroundColor: isDarkMode ? '#ef4444' : '#dc2626',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '0.375rem',
-                  cursor: 'pointer',
-                  alignSelf: 'flex-end'
-                }}
+                className="absolute -top-2 -right-2 bg-fuchsia-700 hover:bg-fuchsia-900 text-white rounded-full w-7 h-7 flex items-center justify-center shadow-lg transition-all border-2 border-fuchsia-300/40"
+                title="Remove transaction"
               >
-                Remove
+                <FaTrashAlt className="text-xs" />
               </button>
-            )}
-          </div>
-        ))}
-
-        <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
+            </div>
+          ))}
+        </div>
+        {/* Add/Analyze Buttons */}
+        <div className="flex gap-4 mb-8 justify-center">
           <button
             type="button"
             onClick={addTransaction}
-            style={{
-              padding: '0.5rem 1rem',
-              backgroundColor: isDarkMode ? '#374151' : '#f3f4f6',
-              color: isDarkMode ? '#e5e7eb' : '#4b5563',
-              border: 'none',
-              borderRadius: '0.375rem',
-              cursor: 'pointer'
-            }}
-          >
+            className="px-6 py-2 rounded-full font-semibold bg-gradient-to-r from-fuchsia-600 to-indigo-500 border-2 border-fuchsia-400/40 text-white shadow-xl hover:scale-105 hover:shadow-2xl transition-all animate-pulse-glow"
+            style={{letterSpacing: '0.03em'}}>
             Add Transaction
           </button>
           <button
             type="submit"
-            disabled={loading}
-            style={{
-              padding: '0.5rem 1rem',
-              backgroundColor: isDarkMode ? '#3b82f6' : '#2563eb',
-              color: 'white',
-              border: 'none',
-              borderRadius: '0.375rem',
-              cursor: loading ? 'not-allowed' : 'pointer',
-              opacity: loading ? 0.7 : 1
-            }}
-          >
-            {loading ? 'Classifying...' : 'Classify Transactions'}
+            disabled={loading || transactions.length === 0}
+            className="px-6 py-2 rounded-full font-semibold bg-gradient-to-r from-fuchsia-600 to-indigo-500 border-2 border-fuchsia-400/40 text-white shadow-xl hover:scale-105 hover:shadow-2xl transition-all animate-pulse-glow disabled:opacity-60 disabled:cursor-not-allowed"
+            style={{letterSpacing: '0.03em'}}>
+            {loading ? 'Classifying...' : 'Classify Spending'}
           </button>
         </div>
       </form>
-
-      {error && (
-        <div style={{
-          padding: '1rem',
-          backgroundColor: isDarkMode ? '#991b1b' : '#fee2e2',
-          color: isDarkMode ? '#fecaca' : '#991b1b',
-          borderRadius: '0.375rem',
-          marginBottom: '1rem'
-        }}>
-          {error}
-        </div>
-      )}
-
+      {/* Results Section */}
       {results && (
-        <div style={{
-          padding: '1rem',
-          backgroundColor: isDarkMode ? '#064e3b' : '#d1fae5',
-          color: isDarkMode ? '#a7f3d0' : '#065f46',
-          borderRadius: '0.375rem'
-        }}>
-          <h3 style={{ marginBottom: '1rem', fontWeight: '600' }}>Classification Results</h3>
-          <div style={{
-            overflowX: 'auto',
-            backgroundColor: isDarkMode ? '#0f766e' : '#ecfdf5',
-            borderRadius: '0.375rem',
-            padding: '0.5rem'
-          }}>
-            <table style={{
-              width: '100%',
-              borderCollapse: 'collapse',
-              fontSize: '0.875rem'
-            }}>
+        <div className="mt-8 animate-fadein">
+          <div className="overflow-x-auto rounded-2xl bg-background-glass/80 shadow-xl p-4">
+            <h4 className="mb-2 text-fuchsia-200 font-semibold">Classified Transactions</h4>
+            <table className="w-full text-sm text-fuchsia-100">
               <thead>
-                <tr>
-                  <th style={{
-                    padding: '0.75rem',
-                    textAlign: 'left',
-                    borderBottom: `2px solid ${isDarkMode ? '#134e4a' : '#059669'}`,
-                    color: isDarkMode ? '#a7f3d0' : '#065f46'
-                  }}>Transaction</th>
-                  <th style={{
-                    padding: '0.75rem',
-                    textAlign: 'left',
-                    borderBottom: `2px solid ${isDarkMode ? '#134e4a' : '#059669'}`,
-                    color: isDarkMode ? '#a7f3d0' : '#065f46'
-                  }}>Category</th>
+                <tr className="border-b border-fuchsia-400/30">
+                  <th className="py-2 text-left">Date</th>
+                  <th className="py-2 text-left">Amount</th>
+                  <th className="py-2 text-left">Description</th>
+                  <th className="py-2 text-left">Merchant</th>
+                  <th className="py-2 text-left">Category</th>
                 </tr>
               </thead>
               <tbody>
-                {results.results.map((result) => (
-                  <tr key={result.id} style={{
-                    borderBottom: `1px solid ${isDarkMode ? '#134e4a' : '#059669'}`
-                  }}>
-                    <td style={{
-                      padding: '0.75rem',
-                      color: isDarkMode ? '#a7f3d0' : '#065f46'
-                    }}>{result.description}</td>
-                    <td style={{
-                      padding: '0.75rem',
-                      color: isDarkMode ? '#a7f3d0' : '#065f46'
-                    }}>
-                      <span style={{
-                        display: 'inline-block',
-                        padding: '0.25rem 0.75rem',
-                        backgroundColor: isDarkMode ? '#134e4a' : '#059669',
-                        color: isDarkMode ? '#a7f3d0' : '#ffffff',
-                        borderRadius: '9999px',
-                        fontSize: '0.75rem',
-                        fontWeight: '500'
-                      }}>
-                        {result.category}
-                      </span>
-                    </td>
+                {results.classified.map((txn, index) => (
+                  <tr key={index} className="border-b border-fuchsia-400/10">
+                    <td className="py-2">{txn.date}</td>
+                    <td className="py-2">₹{txn.amount?.toFixed(2)}</td>
+                    <td className="py-2">{txn.description}</td>
+                    <td className="py-2">{txn.merchant}</td>
+                    <td className="py-2">{txn.category}</td>
                   </tr>
                 ))}
               </tbody>
@@ -414,6 +285,31 @@ const SpendingClassifier = () => {
           </div>
         </div>
       )}
+      <style>{`
+        .drop-shadow-glow {
+          text-shadow: 0 0 8px #d946ef, 0 0 16px #a21caf;
+        }
+        .bg-background-glass { background: rgba(36,33,44,0.92); }
+        @keyframes logo-gradient {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+        .animate-logo-gradient {
+          background-size: 200% 200%;
+          animation: logo-gradient 3s linear infinite;
+        }
+        @keyframes pulse-glow {
+          0%, 100% { opacity: 0.7; }
+          50% { opacity: 1; }
+        }
+        .animate-pulse-glow {
+          animation: pulse-glow 2.2s infinite;
+        }
+        .animate-fadein {
+          animation: fadein 0.7s cubic-bezier(.4,0,.2,1) both;
+        }
+        @keyframes fadein { from { opacity: 0; transform: translateY(20px);} to { opacity: 1; transform: none; } }
+      `}</style>
     </div>
   );
 };
