@@ -1,0 +1,17 @@
+Provide 2 practical saving suggestions and 1 motivational quote for this goal:
+
+Goal: {{ goal }} ({{ goal_type }})
+Amount: ₹{{ target_amount }}
+Timeframe: {{ months_remaining }} months
+Monthly Saving: ₹{{ '%0.2f'|format(monthly_plan) }}
+
+Return EXACTLY this JSON format:
+{
+  "actions": ["action1", "action2"],
+  "quote": "short motivational quote"
+}
+
+Suggestions should be:
+- Specific to the amount and timeframe
+- Practical and actionable
+- Focused on saving strategies
