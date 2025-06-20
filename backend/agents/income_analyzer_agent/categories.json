@@ -1,0 +1,18 @@
+{
+  "salary": [
+    "salary", "stipend", "payroll", "monthly pay", "credit salary", "office pay"
+  ],
+  "freelance": [
+    "freelance", "contract", "consult", "razorpay", "paypal", "upwork", "client payment", "invoice", "side project"
+  ],
+  "dividends": [
+    "dividend", "interest", "mutual fund", "fd interest", "savings interest", "payout"
+  ],
+  "rental": [
+    "rent", "lease", "tenant", "house rent", "flat rent", "apartment rent"
+  ],
+  "gift": [
+    "gift", "present", "gpay", "google pay", "upi", "birthday", "wedding", "anniversary", "reward", "transfer"
+  ],
+  "other": []
+}

@@ -1,0 +1,15 @@
+Extract the following details from this financial goal. Return ONLY valid JSON with these exact fields:
+
+{
+  "goal": "Short descriptive name",
+  "goal_type": "One of [travel, education, emergency, luxury, health, other]",
+  "target_amount": "Numeric value only",
+  "deadline": "Month name or empty string"
+}
+
+Input: "{{ user_input }}"
+
+Important:
+- If amount isn't specified, set target_amount to 0
+- If deadline isn't clear, leave it empty
+- Keep goal names short (3-5 words max)
