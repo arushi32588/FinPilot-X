@@ -7,10 +7,14 @@ load_dotenv()
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
 GROQ_ENDPOINT = "https://api.groq.com/openai/v1/chat/completions"
 
+<<<<<<< HEAD
 # Get the directory where this script is located
 current_dir = os.path.dirname(os.path.abspath(__file__))
 prompts_dir = os.path.join(current_dir, "prompts")
 env = Environment(loader=FileSystemLoader(prompts_dir))
+=======
+env = Environment(loader=FileSystemLoader("prompts"))
+>>>>>>> origin/master
 
 def get_prompt(decision: str, tone: str) -> str:
     template = env.get_template(f"{tone}.j2")
@@ -39,6 +43,7 @@ def explain_decision(decision: str, tone: str = "normal"):
     except Exception as e:
         print("Error:", response.text)
         raise e
+<<<<<<< HEAD
 
 class ExplainerAgent:
     def __init__(self):
@@ -70,3 +75,5 @@ class ExplainerAgent:
                 "factors": factors,
                 "decision": decision
             }
+=======
+>>>>>>> origin/master

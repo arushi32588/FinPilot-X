@@ -1,6 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+<<<<<<< HEAD
 from backend.routes import spending, income, investment_routes, explainer, goal_planner
+=======
+from backend.routes import spending, income, investment_routes, explainer
+>>>>>>> origin/master
 
 app = FastAPI()
 
@@ -18,7 +22,10 @@ app.include_router(spending.router, prefix="/api")
 app.include_router(income.router, prefix="/api")
 app.include_router(investment_routes.router, prefix="/api")
 app.include_router(explainer.router, prefix="/api")
+<<<<<<< HEAD
 app.include_router(goal_planner.router, prefix="/api")
+=======
+>>>>>>> origin/master
 
 @app.get("/")
 async def root():
