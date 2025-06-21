@@ -15,6 +15,14 @@ const AgentManager = ({ currentPage = 'home' }) => {
   // Show appropriate agent based on current page
   useEffect(() => {
     const timer = setTimeout(() => {
+      // Reset all agents first
+      setHomeAgentVisible(false);
+      setGoalAgentVisible(false);
+      setInvestmentAgentVisible(false);
+      setGoalAgentWaving(false);
+      setInvestmentAgentWaving(false);
+      setIsIntroducingFriends(false);
+
       switch (currentPage) {
         case 'home':
           setHomeAgentVisible(true);
@@ -44,19 +52,19 @@ const AgentManager = ({ currentPage = 'home' }) => {
   const handleIntroduceFriends = () => {
     setIsIntroducingFriends(true);
     
-    // Show goal agent with wave
+    // Show goal agent with wave (briefly)
     setTimeout(() => {
       setGoalAgentVisible(true);
       setGoalAgentWaving(true);
     }, 500);
 
-    // Show investment agent with wave
+    // Show investment agent with wave (briefly)
     setTimeout(() => {
       setInvestmentAgentVisible(true);
       setInvestmentAgentWaving(true);
     }, 1500);
 
-    // Stop waving after 3 seconds
+    // Stop waving and hide other agents after 3 seconds
     setTimeout(() => {
       setGoalAgentWaving(false);
       setInvestmentAgentWaving(false);
@@ -64,15 +72,15 @@ const AgentManager = ({ currentPage = 'home' }) => {
       
       // Hide other agents after introduction
       setTimeout(() => {
-        if (currentPage !== 'goals') setGoalAgentVisible(false);
-        if (currentPage !== 'investments') setInvestmentAgentVisible(false);
+        setGoalAgentVisible(false);
+        setInvestmentAgentVisible(false);
       }, 1000);
     }, 3500);
   };
 
   // Handle agent calls
   const handleHomeAgentCall = () => {
-    // Home agent can call other agents
+    // Home agent can call other agents for introduction
     if (currentPage === 'home') {
       handleIntroduceFriends();
     }
