@@ -10,13 +10,9 @@ const navItems = [
   { to: '/transactions', label: 'Transactions', icon: <FaChartPie />, dropdown: [
     { to: '/transactions/classifier', label: 'Spending Classifier' }
   ] },
-<<<<<<< HEAD
   { to: '/goals', label: 'Goals', icon: <FaBullseye />, dropdown: [
     { to: '/goals', label: 'Goal Planner' }
   ] },
-=======
-  { to: '/goals', label: 'Goals', icon: <FaBullseye /> },
->>>>>>> origin/master
   { to: '/investments', label: 'Investments', icon: <FaPiggyBank /> },
   { to: '/library', label: 'Library', icon: <FaBook /> },
   { to: '/explainer', label: 'Explainer', icon: <FaLightbulb /> },
@@ -66,11 +62,7 @@ const TopNav = () => {
                   width: iconOnly ? 48 : 110
                 }}
               />
-<<<<<<< HEAD
               {navItems.map((item) => (
-=======
-              {navItems.map((item, idx) => (
->>>>>>> origin/master
                 <div key={item.to} className="relative group/navitem">
                   <NavLink
                     to={item.to}
