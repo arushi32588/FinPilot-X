@@ -15,6 +15,7 @@ import IncomeSummary from './pages/IncomeSummary';
 import LibraryPage from './pages/LibraryPage';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import AgentManager from './components/agents/AgentManager';
 import './App.css';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase';
@@ -22,6 +23,15 @@ import { auth } from './firebase';
 const AppContent = () => {
   const location = useLocation();
   const hideNav = location.pathname === '/login' || location.pathname === '/register';
+
+  // Determine current page for agent management
+  const getCurrentPage = () => {
+    const path = location.pathname;
+    if (path === '/' || path === '/home') return 'home';
+    if (path === '/goals') return 'goals';
+    if (path === '/investments') return 'investments';
+    return 'home';
+  };
 
   return (
     <div className="min-h-screen bg-background font-sans text-gray-100 flex flex-col">
@@ -47,6 +57,9 @@ const AppContent = () => {
           </Routes>
         </main>
       </div>
+      
+      {/* Agent Manager - only show on authenticated pages */}
+      {!hideNav && <AgentManager currentPage={getCurrentPage()} />}
     </div>
   );
 };
