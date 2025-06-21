@@ -5,20 +5,15 @@ from jinja2 import Environment, FileSystemLoader
 from dotenv import load_dotenv
 from datetime import datetime
 
-<<<<<<< HEAD
 # Load .env file from the backend directory
 current_dir = os.path.dirname(os.path.abspath(__file__))
 backend_dir = os.path.dirname(current_dir)  # Go up one level to backend/
 env_path = os.path.join(backend_dir, '.env')
 load_dotenv(env_path)
-=======
-load_dotenv()
->>>>>>> origin/master
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 GROQ_ENDPOINT = "https://api.groq.com/openai/v1/chat/completions"
 
-<<<<<<< HEAD
 # Debug: Check if API key is loaded
 if GROQ_API_KEY:
     print(f"API Key loaded: {GROQ_API_KEY[:10]}...")
@@ -28,9 +23,6 @@ else:
 # Get the directory where this script is located
 templates_dir = os.path.join(current_dir, "templates")
 env = Environment(loader=FileSystemLoader(templates_dir))
-=======
-env = Environment(loader=FileSystemLoader("templates"))
->>>>>>> origin/master
 
 def calculate_months_remaining(deadline_str):
     """Calculate months between now and the deadline month."""
@@ -55,7 +47,6 @@ def parse_json_response(response_text):
     try:
         if not response_text:
             return None
-<<<<<<< HEAD
         
         # First, try to find JSON within markdown code blocks
         import re
@@ -77,14 +68,6 @@ def parse_json_response(response_text):
     except json.JSONDecodeError as e:
         print(f"Failed to parse response: {response_text}")
         print(f"JSON decode error: {str(e)}")
-=======
-            
-        # Remove markdown code blocks if present
-        clean_text = response_text.replace('```json', '').replace('```', '').strip()
-        return json.loads(clean_text)
-    except json.JSONDecodeError:
-        print(f"Failed to parse response: {response_text}")
->>>>>>> origin/master
         return None
 
 def make_llm_request(headers, payload):
@@ -95,11 +78,8 @@ def make_llm_request(headers, payload):
         return response.json()["choices"][0]["message"]["content"]
     except requests.exceptions.RequestException as e:
         print(f"API request failed: {str(e)}")
-<<<<<<< HEAD
         if hasattr(e, 'response') and e.response is not None:
             print(f"Response content: {e.response.text}")
-=======
->>>>>>> origin/master
         return None
 
 def validate_extracted_data(data):
@@ -138,15 +118,12 @@ def parse_goal_to_plan(user_input: str) -> dict:
         "motivation_quote": "Every problem is an opportunity in disguise"
     }
     
-<<<<<<< HEAD
     # Check if API key is available
     if not GROQ_API_KEY or GROQ_API_KEY == "your_groq_api_key_here":
         # Provide a mock response for testing
         print("No valid GROQ_API_KEY found. Using mock response for testing.")
         return create_mock_goal_plan(user_input)
     
-=======
->>>>>>> origin/master
     try:
         # Step 1: Extract structured data from input
         template = env.get_template("extraction_prompt.j2")
@@ -162,10 +139,6 @@ def parse_goal_to_plan(user_input: str) -> dict:
                 {"role": "user", "content": extraction_prompt}
             ],
             "temperature": 0.2,
-<<<<<<< HEAD
-=======
-            "response_format": {"type": "json_object"},
->>>>>>> origin/master
             "max_tokens": 200
         }
         
@@ -208,10 +181,6 @@ def parse_goal_to_plan(user_input: str) -> dict:
                 {"role": "user", "content": suggestion_prompt_text}
             ],
             "temperature": 0.7,
-<<<<<<< HEAD
-=======
-            "response_format": {"type": "json_object"},
->>>>>>> origin/master
             "max_tokens": 300
         }
         
@@ -243,7 +212,6 @@ def parse_goal_to_plan(user_input: str) -> dict:
         return default_response
     except Exception as e:
         default_response["error"] = f"Unexpected error: {str(e)}"
-<<<<<<< HEAD
         return default_response
 
 def create_mock_goal_plan(user_input: str) -> dict:
@@ -350,6 +318,3 @@ def create_mock_goal_plan(user_input: str) -> dict:
         "suggested_actions": suggestions_map.get(goal_type, suggestions_map["other"]),
         "motivation_quote": random.choice(motivation_quotes)
     }
-=======
-        return default_response
->>>>>>> origin/master

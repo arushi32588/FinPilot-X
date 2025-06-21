@@ -1,11 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from typing import List, Dict, Any
-<<<<<<< HEAD
 from backend.agents.explainer_agent.explainer import ExplainerAgent
-=======
-from backend.agents.explainer.explainer_agent import ExplainerAgent
->>>>>>> origin/master
 
 router = APIRouter()
 

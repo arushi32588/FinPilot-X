@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import Explainer from '../components/Explainer';
@@ -43,7 +42,7 @@ const ExplainerPage = () => {
           <h1 className="text-4xl font-bold bg-gradient-to-r from-fuchsia-400 to-indigo-400 bg-clip-text text-transparent mb-4">
             <FaLightbulb className="inline mr-3" />
             AI Decision Explainer
-      </h1>
+          </h1>
           <p className="text-gray-300 text-lg max-w-3xl mx-auto">
             Get AI-powered insights into your investment decisions. Understand the reasoning, risks, and recommendations behind your financial choices.
           </p>
@@ -167,28 +166,6 @@ const ExplainerPage = () => {
           </div>
         </div>
       </div>
-=======
-import { useTheme } from '../context/ThemeContext';
-import Explainer from '../components/Explainer';
-
-const ExplainerPage = () => {
-  const { isDarkMode } = useTheme();
-
-  return (
-    <div style={{
-      padding: '2rem',
-      color: isDarkMode ? '#e5e7eb' : '#1f2937'
-    }}>
-      <h1 style={{
-        fontSize: '1.875rem',
-        fontWeight: '700',
-        marginBottom: '1.5rem',
-        color: isDarkMode ? '#f3f4f6' : '#1f2937'
-      }}>
-        Your Decision Explainer
-      </h1>
-      <Explainer />
->>>>>>> origin/master
     </div>
   );
 };

@@ -1,9 +1,5 @@
 from fastapi import APIRouter, UploadFile, File, HTTPException, Request, Form
-<<<<<<< HEAD
 from backend.agents.income_analyzer_agent.income_analyzer import IncomeAnalyzer
-=======
-from backend.agents.income_analyzer.income_analyzer import IncomeAnalyzer
->>>>>>> origin/master
 import tempfile
 import os
 import logging

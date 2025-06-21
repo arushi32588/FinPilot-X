@@ -10,12 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-<<<<<<< HEAD
     "firebase": "^11.9.1",
     "html2canvas": "^1.4.1",
     "jspdf": "^3.0.1",
-=======
->>>>>>> origin/master
     "papaparse": "^5.5.3",
     "react": "^19.1.0",
     "react-countup": "^6.5.3",
@@ -24,10 +21,7 @@
     "react-markdown": "^10.1.0",
     "react-router-dom": "^7.6.2",
     "react-tsparticles": "^2.12.2",
-<<<<<<< HEAD
     "recharts": "^2.15.4",
-=======
->>>>>>> origin/master
     "tsparticles": "^3.8.1"
   },
   "devDependencies": {
