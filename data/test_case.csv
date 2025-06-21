@@ -1,0 +1,4 @@
+Date,Amount,Type,Description,Account
+2024-05-01,25000,Credit,Salary Deposit,Salary
+2024-05-03,5000,Credit,Freelance Project,UPI
+2024-05-05,-3000,Debit,Grocery Store,Wallet

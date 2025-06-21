@@ -1,0 +1,218 @@
+[
+  {
+    "timestamp": "2025-06-20T03:11:09.027958",
+    "recommendation": {
+      "central_summary": {
+        "total_corpus_nominal": "\u20b9428,271",
+        "inflation_adjusted_value": "\u20b9320,029",
+        "target_goal_future_value": "\u20b9133,823",
+        "goal_gap": "\u20b9294,448 Surplus",
+        "goal_gap_status": "Surplus"
+      },
+      "recommended_portfolio": [
+        {
+          "name": "HDFC Balanced Advantage Fund",
+          "type": "mutual_fund",
+          "allocation": "55.0%",
+          "rationale": "Given the user's medium risk tolerance and a 60-month (medium-term) horizon, Balanced Advantage Funds are ideal as per best practices. This fund dynamically manages its equity and debt exposure based on market valuations, providing a balance between growth and capital preservation. It's suitable for a beginner investor looking for a professionally managed, diversified solution that adapts to market conditions. It forms the core, providing stability and consistent returns while aiming to outperform inflation.",
+          "expected_return": "12.50%",
+          "expected_nominal_return": "12.50%",
+          "inflation_rate": "6.00%",
+          "real_return": "6.13%",
+          "nominal_future_value": "\u20b9242,101",
+          "inflation_adjusted_value": "\u20b9180,912",
+          "what_this_means": "This is the estimated value of your investment in today's money, after accounting for inflation. It helps you understand the real purchasing power of your future corpus.",
+          "risk_level": "Medium",
+          "liquidity": "High",
+          "micro_invest_enabled": true,
+          "min_investment": 1000,
+          "reasoning": "Given the user's medium risk tolerance and a 60-month (medium-term) horizon, Balanced Advantage Funds are ideal as per best practices. This fund dynamically manages its equity and debt exposure based on market valuations, providing a balance between growth and capital preservation. It's suitable for a beginner investor looking for a professionally managed, diversified solution that adapts to market conditions. It forms the core, providing stability and consistent returns while aiming to outperform inflation."
+        },
+        {
+          "name": "Mirae Asset Large & Midcap Fund",
+          "type": "mutual_fund",
+          "allocation": "40.0%",
+          "rationale": "To enhance the portfolio's growth potential and capture the broader Indian equity market upside, a diversified Large & Midcap fund is recommended. Large caps offer stability, while mid caps provide higher growth potential. This fund complements the Balanced Advantage Fund by offering more direct equity exposure tailored for wealth creation over the 5-year horizon, aligning with the 'Wealth Growth' goal.",
+          "expected_return": "14.50%",
+          "expected_nominal_return": "14.50%",
+          "inflation_rate": "6.00%",
+          "real_return": "8.02%",
+          "nominal_future_value": "\u20b9186,170",
+          "inflation_adjusted_value": "\u20b9139,117",
+          "what_this_means": "This is the estimated value of your investment in today's money, after accounting for inflation. It helps you understand the real purchasing power of your future corpus.",
+          "risk_level": "Medium",
+          "liquidity": "High",
+          "micro_invest_enabled": true,
+          "min_investment": 1000,
+          "reasoning": "To enhance the portfolio's growth potential and capture the broader Indian equity market upside, a diversified Large & Midcap fund is recommended. Large caps offer stability, while mid caps provide higher growth potential. This fund complements the Balanced Advantage Fund by offering more direct equity exposure tailored for wealth creation over the 5-year horizon, aligning with the 'Wealth Growth' goal."
+        },
+        {
+          "name": "ICICI Prudential Gold ETF",
+          "type": "exchange_traded_fund",
+          "allocation": "5.0%",
+          "rationale": "A small allocation to Gold through an ETF provides diversification and acts as a hedge against inflation and equity market volatility. Gold typically has a low correlation with equities, which can help stabilize portfolio returns during periods of market stress. This adds an extra layer of risk management for a medium-risk investor.",
+          "expected_return": "9.00%",
+          "expected_nominal_return": "9.00%",
+          "inflation_rate": "6.00%",
+          "real_return": "2.83%",
+          "nominal_future_value": "\u20b90",
+          "inflation_adjusted_value": "\u20b90",
+          "what_this_means": "This is the estimated value of your investment in today's money, after accounting for inflation. It helps you understand the real purchasing power of your future corpus.",
+          "risk_level": "High",
+          "liquidity": "High",
+          "micro_invest_enabled": true,
+          "min_investment": 1000,
+          "reasoning": "A small allocation to Gold through an ETF provides diversification and acts as a hedge against inflation and equity market volatility. Gold typically has a low correlation with equities, which can help stabilize portfolio returns during periods of market stress. This adds an extra layer of risk management for a medium-risk investor."
+        }
+      ],
+      "micro_investment_plan": {
+        "weekly_investment": 1155,
+        "weeks_to_goal": 260,
+        "total_contribution": 300000
+      },
+      "growth_simulations": {
+        "normal": "13.1% growth",
+        "crash": "6.0% growth",
+        "boom": "20.0% growth",
+        "analysis": {
+          "best_case": "In the best-case scenario, your portfolio benefits from strong market performance, resulting in higher-than-expected returns and faster achievement of your financial goals.",
+          "expected_case": "In the expected scenario, your portfolio grows at a steady pace based on historical averages, helping you stay on track to meet your investment objectives.",
+          "worst_case": "In the worst-case scenario, your portfolio faces adverse market conditions, leading to lower or even negative returns. However, diversification and regular investing can help mitigate losses and support recovery over time."
+        }
+      },
+      "risk_analysis": {
+        "portfolio_risk": "Medium",
+        "diversification_score": "Medium",
+        "liquidity_score": "Medium",
+        "tips": [
+          "Your portfolio is well-diversified across different asset classes",
+          "Consider increasing equity exposure if you can handle more risk",
+          "Keep an emergency fund in liquid investments"
+        ]
+      },
+      "nudge": "Consider reducing equity exposure to manage risk better",
+      "gamification": {
+        "level": 1,
+        "xp": 0,
+        "streak": "0 weeks",
+        "next_level": "Level 2",
+        "xp_to_next": "1000 XP needed"
+      },
+      "investment_tips": [
+        "Start investing early to benefit from compound growth",
+        "Diversify across different asset classes",
+        "Review your portfolio quarterly",
+        "Consider tax implications of your investments",
+        "Keep an emergency fund before investing"
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-06-20T03:13:23.096009",
+    "recommendation": {
+      "central_summary": {
+        "total_corpus_nominal": "\u20b9428,271",
+        "inflation_adjusted_value": "\u20b9320,029",
+        "target_goal_future_value": "\u20b9133,823",
+        "goal_gap": "\u20b9294,448 Surplus",
+        "goal_gap_status": "Surplus"
+      },
+      "recommended_portfolio": [
+        {
+          "name": "HDFC Balanced Advantage Fund",
+          "type": "mutual_fund",
+          "allocation": "55.0%",
+          "rationale": "Given the user's medium risk tolerance and a 60-month (medium-term) horizon, Balanced Advantage Funds are ideal as per best practices. This fund dynamically manages its equity and debt exposure based on market valuations, providing a balance between growth and capital preservation. It's suitable for a beginner investor looking for a professionally managed, diversified solution that adapts to market conditions. It forms the core, providing stability and consistent returns while aiming to outperform inflation.",
+          "expected_return": "12.50%",
+          "expected_nominal_return": "12.50%",
+          "inflation_rate": "6.00%",
+          "real_return": "6.13%",
+          "nominal_future_value": "\u20b9242,101",
+          "inflation_adjusted_value": "\u20b9180,912",
+          "what_this_means": "This is the estimated value of your investment in today's money, after accounting for inflation. It helps you understand the real purchasing power of your future corpus.",
+          "risk_level": "Medium",
+          "liquidity": "High",
+          "micro_invest_enabled": true,
+          "min_investment": 1000,
+          "reasoning": "Given the user's medium risk tolerance and a 60-month (medium-term) horizon, Balanced Advantage Funds are ideal as per best practices. This fund dynamically manages its equity and debt exposure based on market valuations, providing a balance between growth and capital preservation. It's suitable for a beginner investor looking for a professionally managed, diversified solution that adapts to market conditions. It forms the core, providing stability and consistent returns while aiming to outperform inflation."
+        },
+        {
+          "name": "Mirae Asset Large & Midcap Fund",
+          "type": "mutual_fund",
+          "allocation": "40.0%",
+          "rationale": "To enhance the portfolio's growth potential and capture the broader Indian equity market upside, a diversified Large & Midcap fund is recommended. Large caps offer stability, while mid caps provide higher growth potential. This fund complements the Balanced Advantage Fund by offering more direct equity exposure tailored for wealth creation over the 5-year horizon, aligning with the 'Wealth Growth' goal.",
+          "expected_return": "14.50%",
+          "expected_nominal_return": "14.50%",
+          "inflation_rate": "6.00%",
+          "real_return": "8.02%",
+          "nominal_future_value": "\u20b9186,170",
+          "inflation_adjusted_value": "\u20b9139,117",
+          "what_this_means": "This is the estimated value of your investment in today's money, after accounting for inflation. It helps you understand the real purchasing power of your future corpus.",
+          "risk_level": "Medium",
+          "liquidity": "High",
+          "micro_invest_enabled": true,
+          "min_investment": 1000,
+          "reasoning": "To enhance the portfolio's growth potential and capture the broader Indian equity market upside, a diversified Large & Midcap fund is recommended. Large caps offer stability, while mid caps provide higher growth potential. This fund complements the Balanced Advantage Fund by offering more direct equity exposure tailored for wealth creation over the 5-year horizon, aligning with the 'Wealth Growth' goal."
+        },
+        {
+          "name": "ICICI Prudential Gold ETF",
+          "type": "exchange_traded_fund",
+          "allocation": "5.0%",
+          "rationale": "A small allocation to Gold through an ETF provides diversification and acts as a hedge against inflation and equity market volatility. Gold typically has a low correlation with equities, which can help stabilize portfolio returns during periods of market stress. This adds an extra layer of risk management for a medium-risk investor.",
+          "expected_return": "9.00%",
+          "expected_nominal_return": "9.00%",
+          "inflation_rate": "6.00%",
+          "real_return": "2.83%",
+          "nominal_future_value": "\u20b90",
+          "inflation_adjusted_value": "\u20b90",
+          "what_this_means": "This is the estimated value of your investment in today's money, after accounting for inflation. It helps you understand the real purchasing power of your future corpus.",
+          "risk_level": "High",
+          "liquidity": "High",
+          "micro_invest_enabled": true,
+          "min_investment": 1000,
+          "reasoning": "A small allocation to Gold through an ETF provides diversification and acts as a hedge against inflation and equity market volatility. Gold typically has a low correlation with equities, which can help stabilize portfolio returns during periods of market stress. This adds an extra layer of risk management for a medium-risk investor."
+        }
+      ],
+      "micro_investment_plan": {
+        "weekly_investment": 1155,
+        "weeks_to_goal": 260,
+        "total_contribution": 300000
+      },
+      "growth_simulations": {
+        "normal": "13.1% growth",
+        "crash": "6.0% growth",
+        "boom": "20.0% growth",
+        "analysis": {
+          "best_case": "In the best-case scenario, your portfolio benefits from strong market performance, resulting in higher-than-expected returns and faster achievement of your financial goals.",
+          "expected_case": "In the expected scenario, your portfolio grows at a steady pace based on historical averages, helping you stay on track to meet your investment objectives.",
+          "worst_case": "In the worst-case scenario, your portfolio faces adverse market conditions, leading to lower or even negative returns. However, diversification and regular investing can help mitigate losses and support recovery over time."
+        }
+      },
+      "risk_analysis": {
+        "portfolio_risk": "Medium",
+        "diversification_score": "Medium",
+        "liquidity_score": "Medium",
+        "tips": [
+          "Your portfolio is well-diversified across different asset classes",
+          "Consider increasing equity exposure if you can handle more risk",
+          "Keep an emergency fund in liquid investments"
+        ]
+      },
+      "nudge": "Consider reducing equity exposure to manage risk better",
+      "gamification": {
+        "level": 1,
+        "xp": 0,
+        "streak": "0 weeks",
+        "next_level": "Level 2",
+        "xp_to_next": "1000 XP needed"
+      },
+      "investment_tips": [
+        "Start investing early to benefit from compound growth",
+        "Diversify across different asset classes",
+        "Review your portfolio quarterly",
+        "Consider tax implications of your investments",
+        "Keep an emergency fund before investing"
+      ]
+    }
+  }
+]

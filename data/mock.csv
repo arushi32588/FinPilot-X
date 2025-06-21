@@ -1,0 +1,28 @@
+Date,Amount,Type,Category,Description,Account,Source
+2024-05-01,25000,Credit,Salary,Internship Stipend,Salary Account,Work
+2024-05-03,500,Debit,Food,Zomato Order,UPI,Dining
+2024-05-04,1200,Debit,Transport,Uber Ride,UPI,Travel
+2024-05-05,2000,Credit,Gift,Birthday Gift from Aunt,Savings Account,Family
+2024-05-06,900,Debit,Entertainment,Spotify + Netflix Subscriptions,Credit Card,Entertainment
+2024-05-07,3000,Debit,Shopping,Ajio Sale - Clothes,UPI,Apparel
+2024-05-08,1000,Credit,Freelance,Upwork Payment,Savings Account,Side Hustle
+2024-05-09,200,Debit,Food,College Canteen,UPI,Dining
+2024-05-10,1500,Debit,Health,Pharmacy Bill for Flu,Credit Card,Medical
+2024-05-12,600,Debit,Transport,Metro Card Recharge,Cash,Travel
+2024-05-13,5000,Credit,Scholarship,Academic Grant,Salary Account,Scholarship
+2024-05-14,350,Debit,Food,Coffee + Snacks with Friends,UPI,Dining
+2024-05-15,800,Debit,Entertainment,Movie Tickets - PVR,UPI,Entertainment
+2024-05-16,1800,Debit,Bills,Electricity + Wi-Fi Bill,Credit Card,Utilities
+2024-05-17,3000,Credit,Part-Time Work,Freelance Design Project,Savings Account,Side Hustle
+2024-05-18,450,Debit,Groceries,Reliance Fresh,Cash,Essentials
+2024-05-19,1000,Debit,Savings,Transfer to Fixed Deposit,Savings Account,Self-Transfer
+2024-05-20,250,Debit,Food,Dominos Offer Meal,UPI,Dining
+2024-05-21,250,Debit,Food,Street Chaat,UPI,Dining
+2024-05-22,5000,Debit,Travel,Flight to Goa (planned),Credit Card,Goal Spend
+2024-05-23,400,Debit,Entertainment,Concert Ticket,UPI,Entertainment
+2024-05-25,650,Debit,Food,Biryani with Roommates,Cash,Dining
+2024-05-26,1200,Debit,Shopping,Myntra Flash Sale,UPI,Apparel
+2024-05-27,300,Debit,Transport,Auto Fare,Cash,Travel
+2024-05-28,2000,Credit,Freelance,Website Fix Gig,Savings Account,Side Hustle
+2024-05-29,999,Debit,Subscriptions,LinkedIn Premium,Credit Card,Learning
+2024-05-30,3000,Debit,Goal: Goa Trip,Saved for Goa,UPI,Goal Savings

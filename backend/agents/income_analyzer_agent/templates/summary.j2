@@ -1,0 +1,23 @@
+You are a helpful assistant that summarizes income data in simple, clear language. Do not advise the user, just explain the data.
+
+Currency: {{ currency }}
+Total monthly income: {{ monthly_total }}
+Uncategorized income: {{ uncategorized }}
+
+Income Sources:
+{% for source, amount in sources.items() %}
+- {{ source }}: ₹{{ amount }}
+{% endfor %}
+
+Insights:
+- Income stability score: {{ insights.income_stability_score }}
+- Primary sources: {{ insights.primary_sources | join(', ') }}
+- Secondary sources: {{ insights.secondary_sources | join(', ') }}
+{% if insights.anomalies %}
+- Anomalies:
+{% for a in insights.anomalies %}
+  - Source: {{ a.source }}, Amount: ₹{{ a.amount }}, Reason: {{ a.reason }}, Notes: {{ a.notes }}
+{% endfor %}
+{% else %}
+- No anomalies found.
+{% endif %}

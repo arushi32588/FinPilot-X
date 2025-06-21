@@ -1,0 +1,452 @@
+[
+  {
+    "timestamp": "2025-06-20T03:17:52.355589",
+    "recommendation": {
+      "central_summary": {
+        "total_corpus_nominal": "\u20b9431,629",
+        "inflation_adjusted_value": "\u20b9322,538",
+        "target_goal_future_value": "\u20b9133,823",
+        "goal_gap": "\u20b9297,806 Surplus",
+        "goal_gap_status": "Surplus"
+      },
+      "recommended_portfolio": [
+        {
+          "name": "HDFC Balanced Advantage Fund",
+          "type": "mutual_fund",
+          "code": "119552",
+          "allocation": "55.0%",
+          "category": "Hybrid Scheme - Balanced Advantage Fund",
+          "rationale": "This fund dynamically manages its equity and debt exposure based on market valuations, making it an excellent choice for a medium-risk, medium-term investor (5-year horizon). It aims to provide relatively stable returns by participating in equity upside while protecting against significant downsides, aligning perfectly with 'Wealth Growth' and 'Medium' risk tolerance.",
+          "expected_return": "13.00%",
+          "expected_nominal_return": "13.00%",
+          "inflation_rate": "6.00%",
+          "real_return": "6.60%",
+          "nominal_future_value": "\u20b9233,209",
+          "inflation_adjusted_value": "\u20b9174,267",
+          "what_this_means": "This is the estimated value of your investment in today's money, after accounting for inflation. It helps you understand the real purchasing power of your future corpus.",
+          "risk_level": "Medium",
+          "liquidity": "High",
+          "micro_invest_enabled": true,
+          "min_investment": 1000,
+          "reasoning": "This fund dynamically manages its equity and debt exposure based on market valuations, making it an excellent choice for a medium-risk, medium-term investor (5-year horizon). It aims to provide relatively stable returns by participating in equity upside while protecting against significant downsides, aligning perfectly with 'Wealth Growth' and 'Medium' risk tolerance."
+        },
+        {
+          "name": "Parag Parikh Flexi Cap Fund",
+          "type": "mutual_fund",
+          "code": "148906",
+          "allocation": "35.0%",
+          "category": "Equity - Flexi Cap Fund",
+          "rationale": "To enhance wealth growth potential and provide true diversification, this fund invests across market capitalizations in India and has a unique allocation to global equities (primarily US tech giants). This diversifies geographical risk and offers exposure to high-growth international companies, complementing the Indian market focus of the balanced advantage fund. Suitable for the growth-oriented portion of a medium-risk portfolio over 5 years.",
+          "expected_return": "16.00%",
+          "expected_nominal_return": "16.00%",
+          "inflation_rate": "6.00%",
+          "real_return": "9.43%",
+          "nominal_future_value": "\u20b9161,436",
+          "inflation_adjusted_value": "\u20b9120,635",
+          "what_this_means": "This is the estimated value of your investment in today's money, after accounting for inflation. It helps you understand the real purchasing power of your future corpus.",
+          "risk_level": "Medium",
+          "liquidity": "High",
+          "micro_invest_enabled": true,
+          "min_investment": 1000,
+          "reasoning": "To enhance wealth growth potential and provide true diversification, this fund invests across market capitalizations in India and has a unique allocation to global equities (primarily US tech giants). This diversifies geographical risk and offers exposure to high-growth international companies, complementing the Indian market focus of the balanced advantage fund. Suitable for the growth-oriented portion of a medium-risk portfolio over 5 years."
+        },
+        {
+          "name": "SBI Corporate Bond Fund",
+          "type": "mutual_fund",
+          "code": "109867",
+          "allocation": "10.0%",
+          "category": "Debt - Corporate Bond Fund",
+          "rationale": "This allocation provides stability and diversifies the fixed-income component beyond what the balanced advantage fund offers. Investing in corporate bonds offers potentially higher accrual returns compared to traditional fixed deposits, while maintaining relatively low volatility compared to equities. It's suitable for a beginner investor looking for stable returns over a 5-year period and offers better liquidity and potential tax efficiency (post-indexation for long-term capital gains) than FDs.",
+          "expected_return": "8.00%",
+          "expected_nominal_return": "8.00%",
+          "inflation_rate": "6.00%",
+          "real_return": "1.89%",
+          "nominal_future_value": "\u20b936,983",
+          "inflation_adjusted_value": "\u20b927,636",
+          "what_this_means": "This is the estimated value of your investment in today's money, after accounting for inflation. It helps you understand the real purchasing power of your future corpus.",
+          "risk_level": "Medium",
+          "liquidity": "High",
+          "micro_invest_enabled": true,
+          "min_investment": 1000,
+          "reasoning": "This allocation provides stability and diversifies the fixed-income component beyond what the balanced advantage fund offers. Investing in corporate bonds offers potentially higher accrual returns compared to traditional fixed deposits, while maintaining relatively low volatility compared to equities. It's suitable for a beginner investor looking for stable returns over a 5-year period and offers better liquidity and potential tax efficiency (post-indexation for long-term capital gains) than FDs."
+        }
+      ],
+      "micro_investment_plan": {
+        "weekly_investment": 1150,
+        "weeks_to_goal": 87,
+        "total_contribution": 100050
+      },
+      "growth_simulations": {
+        "normal": "13.55% growth",
+        "crash": "13.55% growth",
+        "boom": "13.55% growth",
+        "analysis": {
+          "best_case": "In the best-case scenario, your portfolio benefits from strong market performance, resulting in higher-than-expected returns and faster achievement of your financial goals.",
+          "expected_case": "In the expected scenario, your portfolio grows at a steady pace based on historical averages, helping you stay on track to meet your investment objectives.",
+          "worst_case": "In the worst-case scenario, your portfolio faces adverse market conditions, leading to lower or even negative returns. However, diversification and regular investing can help mitigate losses and support recovery over time."
+        }
+      },
+      "risk_analysis": {
+        "portfolio_risk": "Medium",
+        "diversification_score": "Low",
+        "liquidity_score": "High",
+        "tips": [
+          "Your portfolio is well-diversified across different asset classes",
+          "Consider increasing equity exposure if you can handle more risk",
+          "Keep an emergency fund in liquid investments"
+        ]
+      },
+      "nudge": "Consider reducing equity exposure to manage risk better",
+      "gamification": {
+        "level": 1,
+        "xp": 0,
+        "streak": "0 weeks",
+        "next_level": "Level 2",
+        "xp_to_next": "1000 XP needed"
+      },
+      "investment_tips": [
+        "Start investing early to benefit from compound growth",
+        "Diversify across different asset classes",
+        "Review your portfolio quarterly",
+        "Consider tax implications of your investments",
+        "Keep an emergency fund before investing"
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-06-20T13:34:38.719659",
+    "recommendation": {
+      "central_summary": {
+        "total_corpus_nominal": "\u20b90",
+        "inflation_adjusted_value": "\u20b90",
+        "target_goal_future_value": "\u20b9133,823",
+        "goal_gap": "\u20b9-133,823 Shortfall",
+        "goal_gap_status": "Shortfall"
+      },
+      "recommended_portfolio": [
+        {
+          "name": "HDFC Balanced Advantage Fund",
+          "type": "Hybrid Fund",
+          "allocation": "50.0%",
+          "rationale": "Retained and assigned a significant allocation. This fund dynamically manages its allocation between equity and debt, making it highly suitable for a medium-term (60 months) investment horizon and a medium-risk profile. It helps in balancing growth potential with downside protection by adjusting to market conditions. Its historical performance aligns well with wealth creation goals.",
+          "expected_return": "12.00%",
+          "expected_nominal_return": "12.00%",
+          "inflation_rate": "6.00%",
+          "real_return": "5.66%",
+          "nominal_future_value": "\u20b90",
+          "inflation_adjusted_value": "\u20b90",
+          "what_this_means": "This is the estimated value of your investment in today's money, after accounting for inflation. It helps you understand the real purchasing power of your future corpus.",
+          "risk_level": "High",
+          "liquidity": "High",
+          "micro_invest_enabled": true,
+          "min_investment": 1000,
+          "reasoning": "Retained and assigned a significant allocation. This fund dynamically manages its allocation between equity and debt, making it highly suitable for a medium-term (60 months) investment horizon and a medium-risk profile. It helps in balancing growth potential with downside protection by adjusting to market conditions. Its historical performance aligns well with wealth creation goals."
+        },
+        {
+          "name": "Parag Parikh Flexi Cap Fund",
+          "type": "Equity Fund",
+          "allocation": "35.0%",
+          "rationale": "Introduced to diversify equity exposure and enhance growth potential. A flexi-cap fund invests across market capitalizations (large, mid, and small cap stocks) and also has the mandate for international equity exposure, providing broader diversification and opportunities for higher returns. Parag Parikh is known for its value-oriented, long-term investment philosophy.",
+          "expected_return": "14.00%",
+          "expected_nominal_return": "14.00%",
+          "inflation_rate": "6.00%",
+          "real_return": "7.55%",
+          "nominal_future_value": "\u20b90",
+          "inflation_adjusted_value": "\u20b90",
+          "what_this_means": "This is the estimated value of your investment in today's money, after accounting for inflation. It helps you understand the real purchasing power of your future corpus.",
+          "risk_level": "High",
+          "liquidity": "High",
+          "micro_invest_enabled": true,
+          "min_investment": 1000,
+          "reasoning": "Introduced to diversify equity exposure and enhance growth potential. A flexi-cap fund invests across market capitalizations (large, mid, and small cap stocks) and also has the mandate for international equity exposure, providing broader diversification and opportunities for higher returns. Parag Parikh is known for its value-oriented, long-term investment philosophy."
+        },
+        {
+          "name": "ICICI Prudential All Seasons Bond Fund",
+          "type": "Debt Fund",
+          "allocation": "15.0%",
+          "rationale": "Added to introduce a pure debt component and enhance portfolio stability. While the Balanced Advantage Fund has a debt allocation, this dynamic bond fund can further reduce overall portfolio volatility, especially during equity market downturns. It actively manages duration to benefit from interest rate movements, which is beneficial in varying macroeconomic conditions.",
+          "expected_return": "7.00%",
+          "expected_nominal_return": "7.00%",
+          "inflation_rate": "6.00%",
+          "real_return": "0.94%",
+          "nominal_future_value": "\u20b90",
+          "inflation_adjusted_value": "\u20b90",
+          "what_this_means": "This is the estimated value of your investment in today's money, after accounting for inflation. It helps you understand the real purchasing power of your future corpus.",
+          "risk_level": "High",
+          "liquidity": "High",
+          "micro_invest_enabled": true,
+          "min_investment": 1000,
+          "reasoning": "Added to introduce a pure debt component and enhance portfolio stability. While the Balanced Advantage Fund has a debt allocation, this dynamic bond fund can further reduce overall portfolio volatility, especially during equity market downturns. It actively manages duration to benefit from interest rate movements, which is beneficial in varying macroeconomic conditions."
+        }
+      ],
+      "micro_investment_plan": {
+        "weekly_investment": 1153.85,
+        "weeks_to_goal": 80,
+        "total_contribution": 92308
+      },
+      "growth_simulations": {
+        "normal": "11.95% growth",
+        "crash": "5.0% growth",
+        "boom": "18.0% growth",
+        "analysis": {
+          "best_case": "In the best-case scenario, your portfolio benefits from strong market performance, resulting in higher-than-expected returns and faster achievement of your financial goals.",
+          "expected_case": "In the expected scenario, your portfolio grows at a steady pace based on historical averages, helping you stay on track to meet your investment objectives.",
+          "worst_case": "In the worst-case scenario, your portfolio faces adverse market conditions, leading to lower or even negative returns. However, diversification and regular investing can help mitigate losses and support recovery over time."
+        }
+      },
+      "risk_analysis": {
+        "portfolio_risk": "Medium",
+        "diversification_score": "High",
+        "liquidity_score": "Low",
+        "tips": [
+          "Your portfolio is well-diversified across different asset classes",
+          "Consider increasing equity exposure if you can handle more risk",
+          "Keep an emergency fund in liquid investments"
+        ]
+      },
+      "nudge": "Portfolio risk-adjusted returns could be improved",
+      "gamification": {
+        "level": 1,
+        "xp": 0,
+        "streak": "0 weeks",
+        "next_level": "Level 2",
+        "xp_to_next": "1000 XP needed"
+      },
+      "investment_tips": [
+        "Start investing early to benefit from compound growth",
+        "Diversify across different asset classes",
+        "Review your portfolio quarterly",
+        "Consider tax implications of your investments",
+        "Keep an emergency fund before investing"
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-06-20T13:42:34.787985",
+    "recommendation": {
+      "central_summary": {
+        "total_corpus_nominal": "\u20b9412,825",
+        "inflation_adjusted_value": "\u20b9308,486",
+        "target_goal_future_value": "\u20b9133,823",
+        "goal_gap": "\u20b9279,002 Surplus",
+        "goal_gap_status": "Surplus"
+      },
+      "recommended_portfolio": [
+        {
+          "name": "HDFC Balanced Advantage Fund",
+          "type": "mutual_fund",
+          "code": "119552",
+          "allocation": "60.0%",
+          "category": "Hybrid Scheme - Balanced Advantage Fund",
+          "rationale": "This fund is an excellent choice for a medium-term horizon (5 years) and a 'Medium' risk tolerance. It dynamically manages its equity and debt allocation based on market valuations, aiming to provide stable returns with lower volatility than pure equity funds. It aligns perfectly with the 'multi-asset fund/balanced-advantage fund' recommendation for medium-term goals and is suitable for a beginner investor. It helps in capital preservation while participating in market upside, ensuring your wealth grows steadily while navigating market fluctuations. This replaces a portion of the previous fixed deposit allocation, offering potentially higher inflation-beating returns.",
+          "expected_return": "11.00%",
+          "expected_nominal_return": "11.00%",
+          "inflation_rate": "6.00%",
+          "real_return": "4.72%",
+          "nominal_future_value": "\u20b9267,490",
+          "inflation_adjusted_value": "\u20b9199,884",
+          "what_this_means": "This is the estimated value of your investment in today's money, after accounting for inflation. It helps you understand the real purchasing power of your future corpus.",
+          "risk_level": "Medium",
+          "liquidity": "High",
+          "micro_invest_enabled": true,
+          "min_investment": 1000,
+          "reasoning": "This fund is an excellent choice for a medium-term horizon (5 years) and a 'Medium' risk tolerance. It dynamically manages its equity and debt allocation based on market valuations, aiming to provide stable returns with lower volatility than pure equity funds. It aligns perfectly with the 'multi-asset fund/balanced-advantage fund' recommendation for medium-term goals and is suitable for a beginner investor. It helps in capital preservation while participating in market upside, ensuring your wealth grows steadily while navigating market fluctuations. This replaces a portion of the previous fixed deposit allocation, offering potentially higher inflation-beating returns."
+        },
+        {
+          "name": "Parag Parikh Flexi Cap Fund",
+          "type": "mutual_fund",
+          "code": "140502",
+          "allocation": "30.0%",
+          "category": "Equity Scheme - Flexi Cap Fund",
+          "rationale": "To complement the balanced advantage fund and provide a higher growth potential for the 'Wealth Growth' goal, a Flexi Cap fund is recommended. Parag Parikh Flexi Cap Fund is known for its disciplined investment approach, investing across market capitalizations (large, mid, and small) and even a portion in international equities (e.g., Alphabet, Amazon), providing true diversification beyond just Indian equities. This adds a dedicated equity component, leveraging India's and global growth stories, suitable for a 5-year horizon for a medium-risk investor looking for robust wealth appreciation. This allocation enhances diversification and potential returns compared to the initial portfolio's heavy reliance on a single hybrid fund.",
+          "expected_return": "14.00%",
+          "expected_nominal_return": "14.00%",
+          "inflation_rate": "6.00%",
+          "real_return": "7.55%",
+          "nominal_future_value": "\u20b9145,335",
+          "inflation_adjusted_value": "\u20b9108,602",
+          "what_this_means": "This is the estimated value of your investment in today's money, after accounting for inflation. It helps you understand the real purchasing power of your future corpus.",
+          "risk_level": "Medium",
+          "liquidity": "High",
+          "micro_invest_enabled": true,
+          "min_investment": 1000,
+          "reasoning": "To complement the balanced advantage fund and provide a higher growth potential for the 'Wealth Growth' goal, a Flexi Cap fund is recommended. Parag Parikh Flexi Cap Fund is known for its disciplined investment approach, investing across market capitalizations (large, mid, and small) and even a portion in international equities (e.g., Alphabet, Amazon), providing true diversification beyond just Indian equities. This adds a dedicated equity component, leveraging India's and global growth stories, suitable for a 5-year horizon for a medium-risk investor looking for robust wealth appreciation. This allocation enhances diversification and potential returns compared to the initial portfolio's heavy reliance on a single hybrid fund."
+        },
+        {
+          "name": "Nippon India ETF Gold BeES",
+          "type": "exchange_traded_fund",
+          "code": "N/A (ETF ticker)",
+          "allocation": "10.0%",
+          "category": "Commodity - Gold",
+          "rationale": "Gold serves as a strategic diversifier in a portfolio, especially important for 'Wealth Growth' over 5 years. It acts as a hedge against inflation (assuming an average inflation rate of 5.5% for the Indian market) and equity market volatility, providing stability during economic uncertainties. Given the current global macro environment and its potential impact on equity markets, a small allocation to gold through an ETF like Gold BeES offers liquidity and cost-efficiency compared to physical gold. This introduces a new asset class for broader diversification, which was missing in the initial portfolio.",
+          "expected_return": "9.00%",
+          "expected_nominal_return": "9.00%",
+          "inflation_rate": "6.00%",
+          "real_return": "2.83%",
+          "nominal_future_value": "\u20b90",
+          "inflation_adjusted_value": "\u20b90",
+          "what_this_means": "This is the estimated value of your investment in today's money, after accounting for inflation. It helps you understand the real purchasing power of your future corpus.",
+          "risk_level": "High",
+          "liquidity": "High",
+          "micro_invest_enabled": true,
+          "min_investment": 1000,
+          "reasoning": "Gold serves as a strategic diversifier in a portfolio, especially important for 'Wealth Growth' over 5 years. It acts as a hedge against inflation (assuming an average inflation rate of 5.5% for the Indian market) and equity market volatility, providing stability during economic uncertainties. Given the current global macro environment and its potential impact on equity markets, a small allocation to gold through an ETF like Gold BeES offers liquidity and cost-efficiency compared to physical gold. This introduces a new asset class for broader diversification, which was missing in the initial portfolio."
+        }
+      ],
+      "micro_investment_plan": {
+        "weekly_investment": 284.27,
+        "weeks_to_goal": 260,
+        "total_contribution": 73909.8
+      },
+      "growth_simulations": {
+        "normal": "11.7% growth",
+        "crash": "6.0% growth",
+        "boom": "16.0% growth",
+        "analysis": {
+          "best_case": "In the best-case scenario, your portfolio benefits from strong market performance, resulting in higher-than-expected returns and faster achievement of your financial goals.",
+          "expected_case": "In the expected scenario, your portfolio grows at a steady pace based on historical averages, helping you stay on track to meet your investment objectives.",
+          "worst_case": "In the worst-case scenario, your portfolio faces adverse market conditions, leading to lower or even negative returns. However, diversification and regular investing can help mitigate losses and support recovery over time."
+        }
+      },
+      "risk_analysis": {
+        "portfolio_risk": "Medium",
+        "diversification_score": "Medium",
+        "liquidity_score": "Medium",
+        "tips": [
+          "Your portfolio is well-diversified across different asset classes",
+          "Consider increasing equity exposure if you can handle more risk",
+          "Keep an emergency fund in liquid investments"
+        ]
+      },
+      "nudge": "Consider reducing equity exposure to manage risk better",
+      "gamification": {
+        "level": 1,
+        "xp": 0,
+        "streak": "0 weeks",
+        "next_level": "Level 2",
+        "xp_to_next": "1000 XP needed"
+      },
+      "investment_tips": [
+        "Start investing early to benefit from compound growth",
+        "Diversify across different asset classes",
+        "Review your portfolio quarterly",
+        "Consider tax implications of your investments",
+        "Keep an emergency fund before investing"
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-06-20T13:49:06.735934",
+    "recommendation": {
+      "central_summary": {
+        "total_corpus_nominal": "\u20b9416,688",
+        "inflation_adjusted_value": "\u20b9311,373",
+        "target_goal_future_value": "\u20b9133,823",
+        "goal_gap": "\u20b9282,865 Surplus",
+        "goal_gap_status": "Surplus"
+      },
+      "recommended_portfolio": [
+        {
+          "name": "HDFC Balanced Advantage Fund",
+          "type": "mutual_fund",
+          "code": "119552",
+          "allocation": "50.0%",
+          "category": "Hybrid Scheme - Balanced Advantage",
+          "rationale": "For a medium-risk profile with a 5-year horizon, this fund dynamically manages its asset allocation between equity and debt based on market valuations. This helps to reduce volatility during market downturns while participating in the upside during bull runs, making it an excellent core holding for beginners. It replaces the fixed deposit and forms the stable backbone of the portfolio.",
+          "expected_return": "11.00%",
+          "expected_nominal_return": "11.00%",
+          "inflation_rate": "6.00%",
+          "real_return": "4.72%",
+          "nominal_future_value": "\u20b9222,908",
+          "inflation_adjusted_value": "\u20b9166,570",
+          "what_this_means": "This is the estimated value of your investment in today's money, after accounting for inflation. It helps you understand the real purchasing power of your future corpus.",
+          "risk_level": "Medium",
+          "liquidity": "High",
+          "micro_invest_enabled": true,
+          "min_investment": 1000,
+          "reasoning": "For a medium-risk profile with a 5-year horizon, this fund dynamically manages its asset allocation between equity and debt based on market valuations. This helps to reduce volatility during market downturns while participating in the upside during bull runs, making it an excellent core holding for beginners. It replaces the fixed deposit and forms the stable backbone of the portfolio."
+        },
+        {
+          "name": "Parag Parikh Flexi Cap Fund",
+          "type": "mutual_fund",
+          "code": "146869",
+          "allocation": "40.0%",
+          "category": "Equity - Flexi Cap",
+          "rationale": "This fund offers diversification by investing across market capitalizations (large, mid, and small cap stocks) and also allocates a portion to global equities (e.g., US tech giants). This provides broad market exposure, reduces concentration risk, and capitalizes on growth opportunities both domestically and internationally. It is suitable for wealth creation over the medium term and complements the hybrid fund with higher growth potential.",
+          "expected_return": "14.00%",
+          "expected_nominal_return": "14.00%",
+          "inflation_rate": "6.00%",
+          "real_return": "7.55%",
+          "nominal_future_value": "\u20b9193,779",
+          "inflation_adjusted_value": "\u20b9144,803",
+          "what_this_means": "This is the estimated value of your investment in today's money, after accounting for inflation. It helps you understand the real purchasing power of your future corpus.",
+          "risk_level": "Medium",
+          "liquidity": "High",
+          "micro_invest_enabled": true,
+          "min_investment": 1000,
+          "reasoning": "This fund offers diversification by investing across market capitalizations (large, mid, and small cap stocks) and also allocates a portion to global equities (e.g., US tech giants). This provides broad market exposure, reduces concentration risk, and capitalizes on growth opportunities both domestically and internationally. It is suitable for wealth creation over the medium term and complements the hybrid fund with higher growth potential."
+        },
+        {
+          "name": "Nippon India ETF Gold BeES",
+          "type": "ETF",
+          "code": "N/A",
+          "allocation": "10.0%",
+          "category": "Commodity - Gold",
+          "rationale": "A small allocation to gold, via this ETF, provides a hedge against inflation and equity market volatility. Gold tends to perform well during economic uncertainties and acts as a safe haven asset, thereby enhancing the overall portfolio's stability and diversification, especially for a medium-risk investor.",
+          "expected_return": "7.00%",
+          "expected_nominal_return": "7.00%",
+          "inflation_rate": "6.00%",
+          "real_return": "0.94%",
+          "nominal_future_value": "\u20b90",
+          "inflation_adjusted_value": "\u20b90",
+          "what_this_means": "This is the estimated value of your investment in today's money, after accounting for inflation. It helps you understand the real purchasing power of your future corpus.",
+          "risk_level": "High",
+          "liquidity": "High",
+          "micro_invest_enabled": true,
+          "min_investment": 1000,
+          "reasoning": "A small allocation to gold, via this ETF, provides a hedge against inflation and equity market volatility. Gold tends to perform well during economic uncertainties and acts as a safe haven asset, thereby enhancing the overall portfolio's stability and diversification, especially for a medium-risk investor."
+        }
+      ],
+      "micro_investment_plan": {
+        "weekly_investment": 222.66,
+        "weeks_to_goal": 261,
+        "total_contribution": 58113.6
+      },
+      "growth_simulations": {
+        "normal": "11.8% growth",
+        "crash": "3.0% growth",
+        "boom": "20.0% growth",
+        "analysis": {
+          "best_case": "In the best-case scenario, your portfolio benefits from strong market performance, resulting in higher-than-expected returns and faster achievement of your financial goals.",
+          "expected_case": "In the expected scenario, your portfolio grows at a steady pace based on historical averages, helping you stay on track to meet your investment objectives.",
+          "worst_case": "In the worst-case scenario, your portfolio faces adverse market conditions, leading to lower or even negative returns. However, diversification and regular investing can help mitigate losses and support recovery over time."
+        }
+      },
+      "risk_analysis": {
+        "portfolio_risk": "Medium",
+        "diversification_score": "Medium",
+        "liquidity_score": "Medium",
+        "tips": [
+          "Your portfolio is well-diversified across different asset classes",
+          "Consider increasing equity exposure if you can handle more risk",
+          "Keep an emergency fund in liquid investments"
+        ]
+      },
+      "nudge": "Consider reducing equity exposure to manage risk better",
+      "gamification": {
+        "level": 1,
+        "xp": 0,
+        "streak": "0 weeks",
+        "next_level": "Level 2",
+        "xp_to_next": "1000 XP needed"
+      },
+      "investment_tips": [
+        "Start investing early to benefit from compound growth",
+        "Diversify across different asset classes",
+        "Review your portfolio quarterly",
+        "Consider tax implications of your investments",
+        "Keep an emergency fund before investing"
+      ]
+    }
+  }
+]
